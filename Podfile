@@ -4,12 +4,13 @@ use_frameworks!
 
 target ‘SeedProject’ do
     pod 'Alamofire'
-    pod 'SDWebImage'
-    pod 'SwiftyJSON'
-    pod 'MagicalRecord'
     pod 'ChameleonFramework'
-    pod 'MJRefresh'
-    pod 'MBProgressHUD'
     pod 'DZNEmptyDataSet'
+    pod 'MagicalRecord'
+    pod 'MBProgressHUD'
+    pod 'MJRefresh'
+    pod 'SDWebImage'
+    pod 'SnapKit'
+    pod 'SwiftyJSON'
     pod 'XLPagerTabStrip'
 end

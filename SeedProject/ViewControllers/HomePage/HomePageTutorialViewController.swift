@@ -8,10 +8,10 @@
 
 import XLPagerTabStrip
 
-class HomePageRecommendViewController: UIViewController, IndicatorInfoProvider {
+class HomePageTutorialViewController: UIViewController, IndicatorInfoProvider {
 
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "推荐")
+        return IndicatorInfo(title: "教程")
     }
     
 }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="x8A-pQ-eLw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="x8A-pQ-eLw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,8 +14,8 @@
             <objects>
                 <viewController id="qGp-AH-IGW" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ca6-iL-Nzg"/>
-                        <viewControllerLayoutGuide type="bottom" id="zeh-oE-e2h"/>
+                        <viewControllerLayoutGuide type="top" id="TzY-Uq-PVx"/>
+                        <viewControllerLayoutGuide type="bottom" id="qtg-WR-a5A"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tzu-tE-TYi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -34,8 +34,8 @@
             <objects>
                 <viewController id="vBw-JZ-vzg" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="O2o-lp-YXP"/>
-                        <viewControllerLayoutGuide type="bottom" id="GuD-43-Fj0"/>
+                        <viewControllerLayoutGuide type="top" id="AvO-WS-eEV"/>
+                        <viewControllerLayoutGuide type="bottom" id="E03-pt-EH8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zvW-sy-Rx7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -54,8 +54,8 @@
             <objects>
                 <viewController id="apc-bc-IM8" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Ru7-fq-b4P"/>
-                        <viewControllerLayoutGuide type="bottom" id="zxw-ZU-YkS"/>
+                        <viewControllerLayoutGuide type="top" id="Mrt-hQ-0Tw"/>
+                        <viewControllerLayoutGuide type="bottom" id="jGo-b8-KHU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="D90-s2-3NE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -73,8 +73,8 @@
             <objects>
                 <viewController id="kO5-AL-hhB" customClass="HomePageViewController" customModule="SeedProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="a4t-Ra-rAf"/>
-                        <viewControllerLayoutGuide type="bottom" id="wGm-jf-A3b"/>
+                        <viewControllerLayoutGuide type="top" id="pTD-Gm-b5X"/>
+                        <viewControllerLayoutGuide type="bottom" id="LDm-do-2Y5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="C7l-lK-qZT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -114,8 +114,8 @@
             <objects>
                 <viewController storyboardIdentifier="homePageNews" id="cxb-Rg-kfP" customClass="HomePageNewsViewController" customModule="SeedProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="I12-nt-758"/>
-                        <viewControllerLayoutGuide type="bottom" id="F3K-24-Zqo"/>
+                        <viewControllerLayoutGuide type="top" id="ZJo-QE-g3x"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ea7-mv-EFa"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Odv-1B-1C7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -132,8 +132,8 @@
             <objects>
                 <viewController storyboardIdentifier="homePageEvaluation" id="u16-fO-uej" customClass="HomePageEvaluationViewController" customModule="SeedProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="DcR-DC-lgk"/>
-                        <viewControllerLayoutGuide type="bottom" id="6Mb-43-jU9"/>
+                        <viewControllerLayoutGuide type="top" id="6Ov-tB-9Gg"/>
+                        <viewControllerLayoutGuide type="bottom" id="AVf-JY-uo1"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="93b-GV-UKi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -145,13 +145,13 @@
             </objects>
             <point key="canvasLocation" x="1748" y="-3104"/>
         </scene>
-        <!--Home Page Recommend View Controller-->
+        <!--Home Page Tutorial View Controller-->
         <scene sceneID="CWH-bA-geG">
             <objects>
-                <viewController storyboardIdentifier="homePageRecommend" id="M41-2w-WgA" customClass="HomePageRecommendViewController" customModule="SeedProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homePageTutorial" id="M41-2w-WgA" customClass="HomePageTutorialViewController" customModule="SeedProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="nC6-Ed-Qcl"/>
-                        <viewControllerLayoutGuide type="bottom" id="c89-qo-lUs"/>
+                        <viewControllerLayoutGuide type="top" id="HjY-BH-2Vk"/>
+                        <viewControllerLayoutGuide type="bottom" id="rox-QY-2by"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9GG-jL-hDY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -190,7 +190,7 @@
                     <tabBarItem key="tabBarItem" title="首页" image="home" id="xqr-Cb-UUR"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wDr-k9-GpR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
