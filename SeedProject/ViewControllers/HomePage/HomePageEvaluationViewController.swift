@@ -11,7 +11,7 @@ import XLPagerTabStrip
 class HomePageEvaluationViewController: UIViewController, IndicatorInfoProvider {
 
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "评测")
+        return IndicatorInfo(title: NSLocalizedString("homePage.evaluation", comment: ""))
     }
 
 }

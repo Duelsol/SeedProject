@@ -23,8 +23,8 @@ class HomePageViewController: ButtonBarPagerTabStripViewController {
         // 设置XLPagerTabStrip
         settings.style.buttonBarBackgroundColor = UIColor.clear
         settings.style.buttonBarItemBackgroundColor = UIColor.clear
-        settings.style.buttonBarItemTitleColor = UIColor.white
-        settings.style.selectedBarBackgroundColor = UIColor.white
+        settings.style.buttonBarItemTitleColor = NAVIGATIONBAR_TEXT_COLOR
+        settings.style.selectedBarBackgroundColor = NAVIGATIONBAR_TEXT_COLOR
         settings.style.selectedBarHeight = 2
         settings.style.buttonBarMinimumLineSpacing = 0
         settings.style.buttonBarItemsShouldFillAvailiableWidth = true

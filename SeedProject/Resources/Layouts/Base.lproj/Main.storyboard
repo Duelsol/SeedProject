@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--搜索-->
+        <!--Search View Controller-->
         <scene sceneID="vrL-Wd-fWY">
             <objects>
-                <viewController id="qGp-AH-IGW" sceneMemberID="viewController">
+                <viewController id="qGp-AH-IGW" customClass="SearchViewController" customModule="SeedProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TzY-Uq-PVx"/>
                         <viewControllerLayoutGuide type="bottom" id="qtg-WR-a5A"/>
@@ -22,14 +22,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="搜索" image="search" id="tRN-eb-UAq"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="" image="search" id="tRN-eb-UAq"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fuH-PU-F6C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1748" y="263"/>
         </scene>
-        <!--我的-->
+        <!--View Controller-->
         <scene sceneID="jac-pO-pzD">
             <objects>
                 <viewController id="vBw-JZ-vzg" sceneMemberID="viewController">
@@ -42,17 +42,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="我的" image="male" id="efD-xh-mGh"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="" image="male" id="efD-xh-mGh"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oTQ-fJ-AUM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="838" y="573"/>
         </scene>
-        <!--社区-->
+        <!--Community View Controller-->
         <scene sceneID="pev-cD-aZ9">
             <objects>
-                <viewController id="apc-bc-IM8" sceneMemberID="viewController">
+                <viewController id="apc-bc-IM8" customClass="CommunityViewController" customModule="SeedProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mrt-hQ-0Tw"/>
                         <viewControllerLayoutGuide type="bottom" id="jGo-b8-KHU"/>
@@ -62,7 +62,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="社区" image="user-group" id="0S0-3U-f5a"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="" image="user-group" id="0S0-3U-f5a"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fe6-7C-jja" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -183,11 +183,11 @@
             </objects>
             <point key="canvasLocation" x="-383" y="-27"/>
         </scene>
-        <!--首页-->
+        <!--Navigation Controller-->
         <scene sceneID="REg-ke-iPC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="h60-3j-vaR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="首页" image="home" id="xqr-Cb-UUR"/>
+                    <tabBarItem key="tabBarItem" title="" image="home" id="xqr-Cb-UUR"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wDr-k9-GpR">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

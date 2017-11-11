@@ -32,8 +32,8 @@ func after(inSeconds seconds: Double, closure: @escaping () -> ()) {
 func createProjectNavBar(with item: UINavigationItem) -> UINavigationBar {
     // 自定义导航栏
     let projectNavBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIApplication.shared.keyWindow!.rootViewController!.view.bounds.width, height: 64))
-    projectNavBar.barTintColor = UIColor.flatWatermelonColorDark()
-    projectNavBar.tintColor = UIColor.white
+    projectNavBar.barTintColor = NAVIGATIONBAR_BACKGROUND_COLOR
+    projectNavBar.tintColor = NAVIGATIONBAR_TEXT_COLOR
     projectNavBar.setItems([item], animated: false)
     return projectNavBar
 }

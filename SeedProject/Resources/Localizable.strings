@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  SeedProject
+
+  Created by 冯奕骅 on 2017/11/11.
+  Copyright © 2017年 冯奕骅. All rights reserved.
+*/
+
+tabBar.homePage = "首页";
+tabBar.community = "社区";
+tabBar.search = "搜索";
+tabBar.aboutMe = "我的";
+
+homePage.news = "新闻";
+homePage.tutorial = "教程";
+homePage.evaluation = "评测";
