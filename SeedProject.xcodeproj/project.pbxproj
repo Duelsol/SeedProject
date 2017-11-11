@@ -23,6 +23,7 @@
 		EB84215B1F591D5B0055099F /* SeedProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EB8421591F591D5B0055099F /* SeedProject.xcdatamodeld */; };
 		EB84215D1F591D5B0055099F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB84215C1F591D5B0055099F /* Assets.xcassets */; };
 		EB8421601F591D5B0055099F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB84215E1F591D5B0055099F /* LaunchScreen.storyboard */; };
+		EB868D141FB7423400FD5A63 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB868D131FB7423400FD5A63 /* CustomNavigationBar.swift */; };
 		EBA6020C1F5ECB6B00859861 /* ProjectFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA6020B1F5ECB6B00859861 /* ProjectFunctions.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		EB84215C1F591D5B0055099F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB84215F1F591D5B0055099F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB8421611F591D5B0055099F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB868D131FB7423400FD5A63 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		EBA6020B1F5ECB6B00859861 /* ProjectFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				EB3D97861F5F8F7B007112C4 /* MainTabBarController.swift */,
+				EB868D131FB7423400FD5A63 /* CustomNavigationBar.swift */,
 				EB5D57C61F5B035A00C6DE5A /* HomePage */,
 				EB6EC08F1FB6F513001B70AF /* Community */,
 				EB6EC08D1FB6F513001B70AF /* Search */,
@@ -326,6 +329,7 @@
 				EB6EC0961FB70568001B70AF /* SearchViewController.swift in Sources */,
 				EB5D57CA1F5B056F00C6DE5A /* HomePageTutorialViewController.swift in Sources */,
 				EB3D97871F5F8F7B007112C4 /* MainTabBarController.swift in Sources */,
+				EB868D141FB7423400FD5A63 /* CustomNavigationBar.swift in Sources */,
 				EB1326301F5EA9E100ABE06B /* HomePageEvaluationViewController.swift in Sources */,
 				EB8421531F591D5B0055099F /* AppDelegate.swift in Sources */,
 				EB5D57C81F5B051500C6DE5A /* HomePageNewsViewController.swift in Sources */,

@@ -5,6 +5,7 @@ use_frameworks!
 target ‘SeedProject’ do
     pod 'Alamofire'
     pod 'ChameleonFramework'
+    pod 'DeviceKit'
     pod 'DZNEmptyDataSet'
     pod 'MagicalRecord'
     pod 'MBProgressHUD'

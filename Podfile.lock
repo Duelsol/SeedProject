@@ -3,6 +3,7 @@ PODS:
   - ChameleonFramework (2.1.0):
     - ChameleonFramework/Default (= 2.1.0)
   - ChameleonFramework/Default (2.1.0)
+  - DeviceKit (1.4.0)
   - DZNEmptyDataSet (1.8.1)
   - MagicalRecord (2.3.2):
     - MagicalRecord/Core (= 2.3.2)
@@ -19,6 +20,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - ChameleonFramework
+  - DeviceKit
   - DZNEmptyDataSet
   - MagicalRecord
   - MBProgressHUD
@@ -31,6 +33,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  DeviceKit: fa74d97499660e88081718b16688e19217595dba
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
@@ -40,6 +43,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   XLPagerTabStrip: d1ab378af0923320ec0b5eab11d7b2f803d31261
 
-PODFILE CHECKSUM: d85622d6302b4956e55c29681607efe465fe8146
+PODFILE CHECKSUM: c9e05bb45097087261be2ecd2cd3d842da0383d4
 
 COCOAPODS: 1.2.1

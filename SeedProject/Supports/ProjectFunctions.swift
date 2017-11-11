@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import DeviceKit
 
 /// To use the  #if DEBUG macro then you have to define
 /// the "Swift Compiler - Custom Flags -Other Flags" to contain the value -D DEBUG
@@ -30,8 +31,10 @@ func after(inSeconds seconds: Double, closure: @escaping () -> ()) {
 
 /// 创建项目导航栏
 func createProjectNavBar(with item: UINavigationItem) -> UINavigationBar {
-    // 自定义导航栏
-    let projectNavBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIApplication.shared.keyWindow!.rootViewController!.view.bounds.width, height: 64))
+    let device = Device()
+    let width = UIApplication.shared.keyWindow!.rootViewController!.view.bounds.width
+    let height: CGFloat = (device == .iPhoneX || device == .simulator(.iPhoneX)) ? 88 : 64
+    let projectNavBar = CustomNavigationBar(frame: CGRect(x: 0, y: 0, width: width, height: height))
     projectNavBar.barTintColor = NAVIGATIONBAR_BACKGROUND_COLOR
     projectNavBar.tintColor = NAVIGATIONBAR_TEXT_COLOR
     projectNavBar.setItems([item], animated: false)
