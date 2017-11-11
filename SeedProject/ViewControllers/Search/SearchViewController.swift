@@ -8,12 +8,11 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController, UISearchControllerDelegate {
 
     let searchController = UISearchController(searchResultsController: nil)
 
     override func viewDidLoad() {
-        super.viewDidLoad()
         // 隐藏导航栏
         navigationController?.setNavigationBarHidden(true, animated: false)
         navigationController?.hidesNavigationBarHairline = true
@@ -22,6 +21,14 @@ class SearchViewController: UIViewController {
         homePageNavItem.titleView = searchController.searchBar
         let projectNavBar = createProjectNavBar(with: homePageNavItem)
         view.addSubview(projectNavBar)
+
+        searchController.delegate = self
+
+        super.viewDidLoad()
+    }
+
+    func didPresentSearchController(_ searchController: UISearchController) {
+        searchController.searchBar.becomeFirstResponder()
     }
 
 }

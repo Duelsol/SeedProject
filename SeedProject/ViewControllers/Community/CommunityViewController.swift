@@ -11,7 +11,6 @@ import UIKit
 class CommunityViewController: UIViewController {
 
     override func viewDidLoad() {
-        super.viewDidLoad()
         // 隐藏导航栏
         navigationController?.setNavigationBarHidden(true, animated: false)
         navigationController?.hidesNavigationBarHairline = true
@@ -23,6 +22,8 @@ class CommunityViewController: UIViewController {
         homePageNavItem.titleView = titleLabel
         let projectNavBar = createProjectNavBar(with: homePageNavItem)
         view.addSubview(projectNavBar)
+
+        super.viewDidLoad()
     }
 
 }
