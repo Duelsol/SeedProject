@@ -14,10 +14,10 @@ class CustomNavigationBar: UINavigationBar {
     override func layoutSubviews() {
         super.layoutSubviews()
         for subView in subviews {
-            let clazzName = String(describing: subView.self)
-            if clazzName.contains("Background") {
+            let className = String(describing: subView.self)
+            if className.contains("Background") {
                 subView.frame = bounds
-            } else if clazzName.contains("ContentView") {
+            } else if className.contains("ContentView") {
                 var frame = subView.frame
                 frame.origin.y = UIApplication.shared.statusBarFrame.height
                 frame.size.height = bounds.size.height - frame.origin.y
