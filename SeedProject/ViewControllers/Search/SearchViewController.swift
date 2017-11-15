@@ -46,6 +46,12 @@ class SearchViewController: UIViewController, UISearchControllerDelegate, UISear
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let text = searchBar.text {
+            if let index = DefaultData.searchHistory.index(of: text) {
+                DefaultData.searchHistory.remove(at: index)
+            }
+            DefaultData.searchHistory.insert(text, at: 0)
+        }
     }
 
     func updateSearchResults(for searchController: UISearchController) {

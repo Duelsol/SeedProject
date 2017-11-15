@@ -27,4 +27,14 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         return cell!
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) {
+            let text = cell.textLabel!.text!
+            if let index = DefaultData.searchHistory.index(of: text) {
+                DefaultData.searchHistory.remove(at: index)
+            }
+            DefaultData.searchHistory.insert(text, at: 0)
+        }
+    }
+
 }
