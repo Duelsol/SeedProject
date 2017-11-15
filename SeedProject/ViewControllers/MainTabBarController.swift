@@ -11,25 +11,25 @@ import UIKit
 class MainTabBarController: UITabBarController {
 
     override func viewDidLoad() {
+        super.viewDidLoad()
+
         tabBar.tintColor = TABBAR_ITEM_COLOR
         tabBar.barTintColor = TABBAR_TEXT_COLOR
 
         for tabBarItem in tabBar.items! {
             switch tabBarItem.tag {
             case 0:
-                tabBarItem.title = NSLocalizedString("tabBar.homePage", comment: "")
+                tabBarItem.title = NSLocalizedString("tabBar.homePage.title", comment: "")
             case 1:
-                tabBarItem.title = NSLocalizedString("tabBar.community", comment: "")
+                tabBarItem.title = NSLocalizedString("tabBar.community.title", comment: "")
             case 2:
-                tabBarItem.title = NSLocalizedString("tabBar.search", comment: "")
+                tabBarItem.title = NSLocalizedString("tabBar.search.title", comment: "")
             case 3:
-                tabBarItem.title = NSLocalizedString("tabBar.aboutMe", comment: "")
+                tabBarItem.title = NSLocalizedString("tabBar.aboutMe.title", comment: "")
             default:
                 break
             }
         }
-
-        super.viewDidLoad()
     }
 
 }

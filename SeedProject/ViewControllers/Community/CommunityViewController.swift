@@ -11,19 +11,16 @@ import UIKit
 class CommunityViewController: UIViewController {
 
     override func viewDidLoad() {
-        // 隐藏导航栏
-        navigationController?.setNavigationBarHidden(true, animated: false)
-        navigationController?.hidesNavigationBarHairline = true
+        super.viewDidLoad()
+
         // 自定义导航栏
         let titleLabel = UILabel()
-        titleLabel.text = NSLocalizedString("tabBar.community", comment: "")
+        titleLabel.text = NSLocalizedString("tabBar.community.title", comment: "")
         titleLabel.textColor = NAVIGATIONBAR_TEXT_COLOR
         let homePageNavItem = UINavigationItem()
         homePageNavItem.titleView = titleLabel
-        let projectNavBar = createProjectNavBar(with: homePageNavItem)
-        view.addSubview(projectNavBar)
-
-        super.viewDidLoad()
+        let customNavBar = createCustomNavBar(with: homePageNavItem, replaceOf: navigationController)
+        view.addSubview(customNavBar)
     }
 
 }

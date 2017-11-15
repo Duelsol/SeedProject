@@ -30,13 +30,17 @@ func after(inSeconds seconds: Double, closure: @escaping () -> ()) {
 }
 
 /// 创建项目导航栏
-func createProjectNavBar(with item: UINavigationItem) -> UINavigationBar {
+func createCustomNavBar(with item: UINavigationItem? = nil, replaceOf default: UINavigationController? = nil) -> UINavigationBar {
+    `default`?.setNavigationBarHidden(true, animated: false)
+    `default`?.hidesNavigationBarHairline = true
     let device = Device()
     let width = UIApplication.shared.keyWindow!.rootViewController!.view.bounds.width
     let height: CGFloat = (device == .iPhoneX || device == .simulator(.iPhoneX)) ? 88 : 64
-    let projectNavBar = CustomNavigationBar(frame: CGRect(x: 0, y: 0, width: width, height: height))
-    projectNavBar.barTintColor = NAVIGATIONBAR_BACKGROUND_COLOR
-    projectNavBar.tintColor = NAVIGATIONBAR_TEXT_COLOR
-    projectNavBar.setItems([item], animated: false)
-    return projectNavBar
+    let customNavBar = CustomNavigationBar(frame: CGRect(x: 0, y: 0, width: width, height: height))
+    customNavBar.barTintColor = NAVIGATIONBAR_BACKGROUND_COLOR
+    customNavBar.tintColor = NAVIGATIONBAR_TEXT_COLOR
+    if item != nil {
+        customNavBar.setItems([item!], animated: false)
+    }
+    return customNavBar
 }

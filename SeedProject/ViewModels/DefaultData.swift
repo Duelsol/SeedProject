@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+struct DefaultData {
+
+    static var searchHistory: [String] = {
+        return ["机械键盘", "filco", "周杰伦", "游戏机实用技术", "绝地求生", "手柄", "switch", "macbook"]
+    }()
+
+}

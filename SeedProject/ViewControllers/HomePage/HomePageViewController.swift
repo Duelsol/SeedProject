@@ -11,15 +11,6 @@ import XLPagerTabStrip
 class HomePageViewController: ButtonBarPagerTabStripViewController {
 
     override func viewDidLoad() {
-        // 隐藏导航栏
-        navigationController?.setNavigationBarHidden(true, animated: false)
-        navigationController?.hidesNavigationBarHairline = true
-        // 自定义导航栏
-        let homePageNavItem = UINavigationItem()
-        homePageNavItem.titleView = buttonBarView
-        let projectNavBar = createProjectNavBar(with: homePageNavItem)
-        view.addSubview(projectNavBar)
-
         // 设置XLPagerTabStrip
         settings.style.buttonBarBackgroundColor = UIColor.clear
         settings.style.buttonBarItemBackgroundColor = UIColor.clear
@@ -30,6 +21,12 @@ class HomePageViewController: ButtonBarPagerTabStripViewController {
         settings.style.buttonBarItemsShouldFillAvailiableWidth = true
         settings.style.buttonBarLeftContentInset = 0
         settings.style.buttonBarRightContentInset = 0
+
+        // 自定义导航栏
+        let homePageNavItem = UINavigationItem()
+        homePageNavItem.titleView = buttonBarView
+        let customNavBar = createCustomNavBar(with: homePageNavItem, replaceOf: navigationController)
+        view.addSubview(customNavBar)
 
         super.viewDidLoad()
     }
