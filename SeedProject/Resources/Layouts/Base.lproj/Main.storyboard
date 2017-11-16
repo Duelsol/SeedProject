@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="x8A-pQ-eLw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="x8A-pQ-eLw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -29,10 +29,10 @@
             </objects>
             <point key="canvasLocation" x="1748" y="263"/>
         </scene>
-        <!--View Controller-->
+        <!--About Me View Controller-->
         <scene sceneID="jac-pO-pzD">
             <objects>
-                <viewController id="vBw-JZ-vzg" sceneMemberID="viewController">
+                <viewController id="vBw-JZ-vzg" customClass="AboutMeViewController" customModule="SeedProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AvO-WS-eEV"/>
                         <viewControllerLayoutGuide type="bottom" id="E03-pt-EH8"/>
@@ -47,7 +47,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oTQ-fJ-AUM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="838" y="573"/>
+            <point key="canvasLocation" x="681" y="566"/>
         </scene>
         <!--Community View Controller-->
         <scene sceneID="pev-cD-aZ9">
@@ -183,6 +183,24 @@
             </objects>
             <point key="canvasLocation" x="-383" y="-27"/>
         </scene>
+        <!--Demo View Controller-->
+        <scene sceneID="hMc-yU-pST">
+            <objects>
+                <viewController id="dph-tz-tP1" customClass="DemoViewController" customModule="SeedProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JXs-8x-qSQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="vmz-nU-SGb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RJ2-Wu-51R">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zeC-qN-0He" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-383" y="-1093"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="REg-ke-iPC">
             <objects>
@@ -200,7 +218,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mjs-Kw-8Rz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="838" y="-1093"/>
+            <point key="canvasLocation" x="681" y="-1093"/>
         </scene>
     </scenes>
     <resources>

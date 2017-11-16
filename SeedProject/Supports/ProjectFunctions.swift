@@ -29,6 +29,20 @@ func after(inSeconds seconds: Double, closure: @escaping () -> ()) {
     DispatchQueue.main.asyncAfter(deadline: delayTime, execute: closure)
 }
 
+extension String {
+
+    /// 将文字转为拼音
+    func pinYin() -> String {
+        let string = NSMutableString(string: self)
+        // 先转成带音标的拼音
+        CFStringTransform(string, nil, kCFStringTransformToLatin, false)
+        // 再转成去掉音标的拼音
+        CFStringTransform(string, nil, kCFStringTransformStripDiacritics, false)
+        return string.replacingOccurrences(of: " ", with: "")
+    }
+
+}
+
 /// 创建项目导航栏
 func createCustomNavBar(with item: UINavigationItem? = nil, replaceOf default: UINavigationController? = nil) -> UINavigationBar {
     `default`?.setNavigationBarHidden(true, animated: false)

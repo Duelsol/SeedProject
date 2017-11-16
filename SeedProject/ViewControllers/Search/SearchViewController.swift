@@ -11,6 +11,7 @@ import UIKit
 class SearchViewController: UIViewController, UISearchControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating {
 
     var searchController = UISearchController(searchResultsController: nil)
+    var searchScrollView = UIScrollView()
     var searchResultTableView = UITableView()
     var searchResultData: [String] = []
 
@@ -32,11 +33,20 @@ class SearchViewController: UIViewController, UISearchControllerDelegate, UISear
         let customNavBar = createCustomNavBar(with: homePageNavItem, replaceOf: navigationController)
         view.addSubview(customNavBar)
 
+        // 设置搜索主页
+        searchScrollView.frame = CGRect(x: 0, y: customNavBar.frame.height, width: view.bounds.width, height: view.bounds.height)
+        searchScrollView.alwaysBounceHorizontal = true
+        searchScrollView.keyboardDismissMode = .onDrag
+        view.addSubview(searchScrollView)
+
         // 设置查询列表
         searchResultTableView.frame = CGRect(x: 0, y: customNavBar.frame.height, width: view.bounds.width, height: view.bounds.height)
         searchResultTableView.delegate = self
         searchResultTableView.dataSource = self
         searchResultTableView.isHidden = true
+        searchResultTableView.keyboardDismissMode = .onDrag
+        // 隐藏无数据行的分割线
+        searchResultTableView.tableFooterView = UIView()
         view.addSubview(searchResultTableView)
     }
 
@@ -58,8 +68,10 @@ class SearchViewController: UIViewController, UISearchControllerDelegate, UISear
         searchResultData.removeAll()
         let searchString = searchController.searchBar.text!
         searchResultTableView.isHidden = searchString.isEmpty
+        searchScrollView.isHidden = !searchString.isEmpty
         for searchHistory in DefaultData.searchHistory {
-            if searchHistory.lowercased().contains(searchString.lowercased()) {
+            if searchHistory.lowercased().contains(searchString.lowercased())
+                || searchHistory.pinYin().lowercased().contains(searchString.lowercased()) {
                 searchResultData.append(searchHistory)
             }
         }

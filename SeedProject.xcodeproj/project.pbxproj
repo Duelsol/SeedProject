@@ -10,6 +10,8 @@
 		020F0D019E7EC97F4940A0DA /* Pods_SeedProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B9B17D6F0C91E78469A3FCE /* Pods_SeedProject.framework */; };
 		EB0E7CCB1FBC3BEE00FCE3BD /* SearchResultTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0E7CCA1FBC3BEE00FCE3BD /* SearchResultTableView.swift */; };
 		EB1326301F5EA9E100ABE06B /* HomePageEvaluationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13262F1F5EA9E100ABE06B /* HomePageEvaluationViewController.swift */; };
+		EB3B042F1FBD2A6E0033F492 /* AboutMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3B042E1FBD2A6E0033F492 /* AboutMeViewController.swift */; };
+		EB3B04311FBDC9100033F492 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3B04301FBDC9100033F492 /* DemoViewController.swift */; };
 		EB3D97871F5F8F7B007112C4 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3D97861F5F8F7B007112C4 /* MainTabBarController.swift */; };
 		EB5D57C31F5AFD8E00C6DE5A /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D57C21F5AFD8E00C6DE5A /* HomePageViewController.swift */; };
 		EB5D57C81F5B051500C6DE5A /* HomePageNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D57C71F5B051500C6DE5A /* HomePageNewsViewController.swift */; };
@@ -34,6 +36,8 @@
 		A7744DD0BAE8FCC0CB300149 /* Pods-SeedProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeedProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SeedProject/Pods-SeedProject.debug.xcconfig"; sourceTree = "<group>"; };
 		EB0E7CCA1FBC3BEE00FCE3BD /* SearchResultTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableView.swift; sourceTree = "<group>"; };
 		EB13262F1F5EA9E100ABE06B /* HomePageEvaluationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageEvaluationViewController.swift; sourceTree = "<group>"; };
+		EB3B042E1FBD2A6E0033F492 /* AboutMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeViewController.swift; sourceTree = "<group>"; };
+		EB3B04301FBDC9100033F492 /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
 		EB3D97861F5F8F7B007112C4 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		EB5D57BF1F5AE0B200C6DE5A /* SeedProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SeedProject-Bridging-Header.h"; sourceTree = "<group>"; };
 		EB5D57C21F5AFD8E00C6DE5A /* HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +86,14 @@
 				6B9B17D6F0C91E78469A3FCE /* Pods_SeedProject.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EB3B042D1FBD2A3A0033F492 /* AboutMe */ = {
+			isa = PBXGroup;
+			children = (
+				EB3B042E1FBD2A6E0033F492 /* AboutMeViewController.swift */,
+			);
+			path = AboutMe;
 			sourceTree = "<group>";
 		};
 		EB5D57C61F5B035A00C6DE5A /* HomePage */ = {
@@ -164,9 +176,11 @@
 			children = (
 				EB3D97861F5F8F7B007112C4 /* MainTabBarController.swift */,
 				EB868D131FB7423400FD5A63 /* CustomNavigationBar.swift */,
+				EB3B04301FBDC9100033F492 /* DemoViewController.swift */,
 				EB5D57C61F5B035A00C6DE5A /* HomePage */,
 				EB6EC08F1FB6F513001B70AF /* Community */,
 				EB6EC08D1FB6F513001B70AF /* Search */,
+				EB3B042D1FBD2A3A0033F492 /* AboutMe */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -328,11 +342,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB6EC0981FB7093A001B70AF /* ProjectThemes.swift in Sources */,
+				EB3B042F1FBD2A6E0033F492 /* AboutMeViewController.swift in Sources */,
 				EB84215B1F591D5B0055099F /* SeedProject.xcdatamodeld in Sources */,
 				EB6EC0961FB70568001B70AF /* SearchViewController.swift in Sources */,
 				EB5D57CA1F5B056F00C6DE5A /* HomePageTutorialViewController.swift in Sources */,
 				EB3D97871F5F8F7B007112C4 /* MainTabBarController.swift in Sources */,
 				EB868D141FB7423400FD5A63 /* CustomNavigationBar.swift in Sources */,
+				EB3B04311FBDC9100033F492 /* DemoViewController.swift in Sources */,
 				EB1326301F5EA9E100ABE06B /* HomePageEvaluationViewController.swift in Sources */,
 				EB8421531F591D5B0055099F /* AppDelegate.swift in Sources */,
 				EB0E7CCB1FBC3BEE00FCE3BD /* SearchResultTableView.swift in Sources */,
