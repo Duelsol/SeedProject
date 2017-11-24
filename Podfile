@@ -10,6 +10,7 @@ target ‘SeedProject’ do
     pod 'MagicalRecord'
     pod 'MBProgressHUD'
     pod 'MJRefresh'
+    pod ‘PYSearch’
     pod 'SDWebImage'
     pod 'SnapKit'
     pod 'SwiftyJSON'

@@ -7,40 +7,36 @@
 //
 
 import UIKit
+import PYSearch
 
-class SearchViewController: UIViewController, UISearchControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating {
+class SearchViewController: UIViewController, PYSearchViewControllerDelegate {
 
-    var searchController = UISearchController(searchResultsController: nil)
-    var searchScrollView = UIScrollView()
-    var searchResultTableView = UITableView()
-    var searchResultData: [String] = []
+    var searchViewController: PYSearchViewController?
+    let searchResultTableView = UITableView()
+    var searchResultData = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // 设置搜索框
-        searchController.delegate = self
-        searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
-        searchController.hidesNavigationBarDuringPresentation = false
-        searchController.searchBar.delegate = self
-        searchController.searchBar.setValue(NSLocalizedString("search.searchBar.cancelText", comment: ""), forKey: "_cancelButtonText")
         definesPresentationContext = true
+
+        searchViewController = PYSearchViewController(hotSearches: DefaultData.hotSearches, searchBarPlaceholder: NSLocalizedString("search.searchBar.placeholder", comment: ""), didSearch: {
+            searchViewController, searchBar, searchText in
+        })
+        searchViewController!.delegate = self
+        searchViewController!.searchBar.tintColor = NAVIGATIONBAR_BACKGROUND_COLOR
 
         // 自定义导航栏
         let homePageNavItem = UINavigationItem()
-        homePageNavItem.titleView = searchController.searchBar
+        homePageNavItem.titleView = searchViewController!.searchBar
         let customNavBar = createCustomNavBar(with: homePageNavItem, replaceOf: navigationController)
         view.addSubview(customNavBar)
 
-        // 设置搜索主页
-        searchScrollView.frame = CGRect(x: 0, y: customNavBar.frame.height, width: view.bounds.width, height: view.bounds.height)
-        searchScrollView.alwaysBounceHorizontal = true
-        searchScrollView.keyboardDismissMode = .onDrag
-        view.addSubview(searchScrollView)
+        searchViewController!.view.frame = CGRect(x: 0, y: customNavBar.frame.height, width: view.bounds.width, height: view.bounds.height)
+        addChildViewController(searchViewController!)
+        view.addSubview(searchViewController!.view)
 
         // 设置查询列表
-        searchResultTableView.frame = CGRect(x: 0, y: customNavBar.frame.height, width: view.bounds.width, height: view.bounds.height)
+        searchResultTableView.frame = searchViewController!.view.frame
         searchResultTableView.delegate = self
         searchResultTableView.dataSource = self
         searchResultTableView.isHidden = true
@@ -50,26 +46,11 @@ class SearchViewController: UIViewController, UISearchControllerDelegate, UISear
         view.addSubview(searchResultTableView)
     }
 
-    func didPresentSearchController(_ searchController: UISearchController) {
-        searchController.searchBar.becomeFirstResponder()
-        searchController.searchBar.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 44)
-    }
-
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if let text = searchBar.text {
-            if let index = DefaultData.searchHistory.index(of: text) {
-                DefaultData.searchHistory.remove(at: index)
-            }
-            DefaultData.searchHistory.insert(text, at: 0)
-        }
-    }
-
-    func updateSearchResults(for searchController: UISearchController) {
+    func searchViewController(_ searchViewController: PYSearchViewController!, searchTextDidChange searchBar: UISearchBar!, searchText: String!) {
         searchResultData.removeAll()
-        let searchString = searchController.searchBar.text!
+        let searchString = searchViewController.searchBar.text!
         searchResultTableView.isHidden = searchString.isEmpty
-        searchScrollView.isHidden = !searchString.isEmpty
-        for searchHistory in DefaultData.searchHistory {
+        for searchHistory in DefaultData.hotSearches {
             if searchHistory.lowercased().contains(searchString.lowercased())
                 || searchHistory.pinYin().lowercased().contains(searchString.lowercased()) {
                 searchResultData.append(searchHistory)

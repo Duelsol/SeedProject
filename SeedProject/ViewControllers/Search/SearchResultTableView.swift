@@ -30,10 +30,17 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) {
             let text = cell.textLabel!.text!
-            if let index = DefaultData.searchHistory.index(of: text) {
-                DefaultData.searchHistory.remove(at: index)
+            searchViewController!.searchBar.text = text
+            var searchHistories = (NSKeyedUnarchiver.unarchiveObject(withFile: searchViewController!.searchHistoriesCachePath) as? [String]) ?? [String]()
+            if let index = searchHistories.index(of: text) {
+                searchHistories.remove(at: index)
             }
-            DefaultData.searchHistory.insert(text, at: 0)
+            searchHistories.insert(text, at: 0)
+            NSKeyedArchiver.archiveRootObject(searchHistories, toFile: searchViewController!.searchHistoriesCachePath)
+            searchViewController!.setValue(searchHistories, forKey: "searchHistories")
+            if let baseSearchTableView = searchViewController!.value(forKey: "baseSearchTableView") as? UITableView {
+                baseSearchTableView.reloadData()
+            }
         }
     }
 

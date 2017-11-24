@@ -16,3 +16,4 @@ homePage.tutorial.title = "教程";
 homePage.evaluation.title = "评测";
 
 search.searchBar.cancelText = "取消";
+search.searchBar.placeholder = "搜索";
