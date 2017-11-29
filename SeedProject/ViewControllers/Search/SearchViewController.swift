@@ -9,7 +9,7 @@
 import UIKit
 import PYSearch
 
-class SearchViewController: UIViewController, PYSearchViewControllerDelegate {
+class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PYSearchViewControllerDelegate {
 
     var searchViewController: PYSearchViewController?
     let searchResultTableView = UITableView()
@@ -21,14 +21,13 @@ class SearchViewController: UIViewController, PYSearchViewControllerDelegate {
 
         searchViewController = PYSearchViewController(hotSearches: DefaultData.hotSearches, searchBarPlaceholder: NSLocalizedString("search.searchBar.placeholder", comment: ""), didSearch: {
             searchViewController, searchBar, searchText in
+            self.segueToDemo(title: searchText)
         })
         searchViewController!.delegate = self
         searchViewController!.searchBar.tintColor = NAVIGATIONBAR_BACKGROUND_COLOR
 
         // 自定义导航栏
-        let homePageNavItem = UINavigationItem()
-        homePageNavItem.titleView = searchViewController!.searchBar
-        let customNavBar = createCustomNavBar(with: homePageNavItem, replaceOf: navigationController)
+        let customNavBar = createCustomNavBar(with: UINavigationItem(), replaceOf: navigationController)
         view.addSubview(customNavBar)
 
         searchViewController!.view.frame = CGRect(x: 0, y: customNavBar.frame.height, width: view.bounds.width, height: view.bounds.height)
@@ -46,6 +45,17 @@ class SearchViewController: UIViewController, PYSearchViewControllerDelegate {
         view.addSubview(searchResultTableView)
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        for subview in view.subviews {
+            if let navBar = subview as? UINavigationBar {
+                navBar.items?[0].titleView = searchViewController!.searchBar
+                break
+            }
+        }
+    }
+
     func searchViewController(_ searchViewController: PYSearchViewController!, searchTextDidChange searchBar: UISearchBar!, searchText: String!) {
         searchResultData.removeAll()
         let searchString = searchViewController.searchBar.text!
@@ -57,6 +67,48 @@ class SearchViewController: UIViewController, PYSearchViewControllerDelegate {
             }
         }
         searchResultTableView.reloadData()
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return searchResultData.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.cellForRow(at: indexPath)
+        if (cell == nil) {
+            cell = UITableViewCell()
+        }
+        cell!.textLabel!.text = searchResultData[indexPath.row]
+        return cell!
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) {
+            let text = cell.textLabel!.text!
+            searchViewController!.searchBar.text = text
+            var searchHistories = (NSKeyedUnarchiver.unarchiveObject(withFile: searchViewController!.searchHistoriesCachePath) as? [String]) ?? [String]()
+            if let index = searchHistories.index(of: text) {
+                searchHistories.remove(at: index)
+            }
+            searchHistories.insert(text, at: 0)
+            NSKeyedArchiver.archiveRootObject(searchHistories, toFile: searchViewController!.searchHistoriesCachePath)
+            searchViewController!.setValue(searchHistories, forKey: "searchHistories")
+            if let baseSearchTableView = searchViewController!.value(forKey: "baseSearchTableView") as? UITableView {
+                baseSearchTableView.reloadData()
+            }
+            segueToDemo(title: text)
+        }
+    }
+
+    private func segueToDemo(title: String?) {
+        let destination = DemoViewController()
+        destination.title = title
+        destination.view.backgroundColor = VIEW_BACKGROUND_COLOR
+        navigationController?.pushViewController(destination, animated: true)
     }
 
 }

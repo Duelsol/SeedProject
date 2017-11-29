@@ -13,15 +13,15 @@ class CustomNavigationBar: UINavigationBar {
     /// 解决iOS11布局错乱问题
     override func layoutSubviews() {
         super.layoutSubviews()
-        for subView in subviews {
-            let className = String(describing: subView.self)
+        for subview in subviews {
+            let className = String(describing: subview.self)
             if className.contains("Background") {
-                subView.frame = bounds
+                subview.frame = bounds
             } else if className.contains("ContentView") {
-                var frame = subView.frame
+                var frame = subview.frame
                 frame.origin.y = UIApplication.shared.statusBarFrame.height
                 frame.size.height = bounds.size.height - frame.origin.y
-                subView.frame = frame
+                subview.frame = frame
             }
         }
     }

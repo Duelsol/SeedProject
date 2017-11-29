@@ -12,16 +12,27 @@ class DemoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // 自定义导航栏
+        let titleLabel = UILabel()
+        titleLabel.text = title
+        titleLabel.textColor = NAVIGATIONBAR_TEXT_COLOR
+        let navItem = UINavigationItem()
+        navItem.titleView = titleLabel
+        navItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "arrow-left"), style: .plain, target: self, action: #selector(backTapped))
+        let customNavBar = createCustomNavBar(with: navItem, replaceOf: navigationController)
+        view.addSubview(customNavBar)
     }
 
-    /*
-    // MARK: - Navigation
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        // 右滑返回
+        navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
     }
-    */
+
+    @objc func backTapped() {
+        navigationController?.popViewController(animated: true)
+    }
 
 }

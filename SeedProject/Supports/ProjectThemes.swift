@@ -8,6 +8,8 @@
 
 import Foundation
 
+let VIEW_BACKGROUND_COLOR = UIColor.white
+
 let TABBAR_ITEM_COLOR = UIColor.flatWatermelonColorDark()
 let TABBAR_TEXT_COLOR = UIColor.white
 
