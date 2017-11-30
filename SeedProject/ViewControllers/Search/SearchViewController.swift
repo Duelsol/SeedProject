@@ -21,6 +21,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         searchViewController = PYSearchViewController(hotSearches: DefaultData.hotSearches, searchBarPlaceholder: NSLocalizedString("search.searchBar.placeholder", comment: ""), didSearch: {
             searchViewController, searchBar, searchText in
+            searchBar!.text = nil
             self.segueToDemo(title: searchText)
         })
         searchViewController!.delegate = self
@@ -89,7 +90,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) {
             let text = cell.textLabel!.text!
-            searchViewController!.searchBar.text = text
+
             var searchHistories = (NSKeyedUnarchiver.unarchiveObject(withFile: searchViewController!.searchHistoriesCachePath) as? [String]) ?? [String]()
             if let index = searchHistories.index(of: text) {
                 searchHistories.remove(at: index)
@@ -100,6 +101,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             if let baseSearchTableView = searchViewController!.value(forKey: "baseSearchTableView") as? UITableView {
                 baseSearchTableView.reloadData()
             }
+
+            searchViewController!.searchBar.text = nil
+            searchResultTableView.isHidden = true
             segueToDemo(title: text)
         }
     }
