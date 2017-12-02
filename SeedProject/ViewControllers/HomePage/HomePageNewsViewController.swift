@@ -8,10 +8,31 @@
 
 import XLPagerTabStrip
 
-class HomePageNewsViewController: UIViewController, IndicatorInfoProvider {
+class HomePageNewsViewController: UIViewController, IndicatorInfoProvider, UITableViewDelegate, UITableViewDataSource {
+
+    @IBOutlet weak var newsTableView: UITableView!
+
+    override func viewDidLoad() {
+        newsTableView.delegate = self
+        newsTableView.dataSource = self
+    }
 
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: NSLocalizedString("homePage.news.title", comment: ""))
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return DefaultData.newsCount
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath)
+        cell.textLabel?.text = DefaultData.newsContent[indexPath.row]
+        return cell
     }
 
 }
