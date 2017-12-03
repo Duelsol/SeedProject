@@ -7,14 +7,30 @@
 //
 
 import XLPagerTabStrip
+import SnapKit
 
 class HomePageNewsViewController: UIViewController, IndicatorInfoProvider, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var newsTableView: UITableView!
 
     override func viewDidLoad() {
+        super.viewDidLoad()
+
         newsTableView.delegate = self
         newsTableView.dataSource = self
+        newsTableView.snp.makeConstraints {
+            make in
+            if #available(iOS 11.0, *) {
+                make.edges.equalTo(view.safeAreaInsets)
+            } else {
+                make.edges.equalTo(view)
+            }
+        }
+//        if #available(iOS 11.0, *) {
+//            newsTableView.contentInsetAdjustmentBehavior = .never
+//        } else {
+//            automaticallyAdjustsScrollViewInsets = false
+//        }
     }
 
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
