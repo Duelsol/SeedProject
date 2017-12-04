@@ -29,26 +29,12 @@ func after(inSeconds seconds: Double, closure: @escaping () -> ()) {
     DispatchQueue.main.asyncAfter(deadline: delayTime, execute: closure)
 }
 
-extension String {
-
-    /// 将文字转为拼音
-    func pinYin() -> String {
-        let string = NSMutableString(string: self)
-        // 先转成带音标的拼音
-        CFStringTransform(string, nil, kCFStringTransformToLatin, false)
-        // 再转成去掉音标的拼音
-        CFStringTransform(string, nil, kCFStringTransformStripDiacritics, false)
-        return string.replacingOccurrences(of: " ", with: "")
-    }
-
-}
-
 /// 创建项目导航栏
 func createCustomNavBar(with item: UINavigationItem? = nil, replaceOf default: UINavigationController? = nil) -> UINavigationBar {
     `default`?.setNavigationBarHidden(true, animated: false)
     `default`?.hidesNavigationBarHairline = true
     let device = Device()
-    let width = UIApplication.shared.keyWindow!.rootViewController!.view.bounds.width
+    let width = UIScreen.main.bounds.size.width
     let height: CGFloat = (device == .iPhoneX || device == .simulator(.iPhoneX)) ? 88 : 64
     let customNavBar = CustomNavigationBar(frame: CGRect(x: 0, y: 0, width: width, height: height))
     customNavBar.barTintColor = NAVIGATIONBAR_BACKGROUND_COLOR

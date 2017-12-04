@@ -28,7 +28,8 @@ class HomePageViewController: ButtonBarPagerTabStripViewController {
         let customNavBar = createCustomNavBar(with: homePageNavItem, replaceOf: navigationController)
         view.addSubview(customNavBar)
 
-        containerView.frame = CGRect(x: 0, y: customNavBar.frame.height, width: view.bounds.width, height: view.bounds.height - customNavBar.frame.height)
+        let size = UIScreen.main.bounds.size
+        containerView.frame = CGRect(x: 0, y: customNavBar.frame.height, width: size.width, height: size.height - customNavBar.frame.height)
 
         super.viewDidLoad()
     }

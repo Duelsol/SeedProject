@@ -26,11 +26,6 @@ class HomePageNewsViewController: UIViewController, IndicatorInfoProvider, UITab
                 make.edges.equalTo(view)
             }
         }
-//        if #available(iOS 11.0, *) {
-//            newsTableView.contentInsetAdjustmentBehavior = .never
-//        } else {
-//            automaticallyAdjustsScrollViewInsets = false
-//        }
     }
 
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {

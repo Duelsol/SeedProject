@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		020F0D019E7EC97F4940A0DA /* Pods_SeedProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B9B17D6F0C91E78469A3FCE /* Pods_SeedProject.framework */; };
 		EB1326301F5EA9E100ABE06B /* HomePageEvaluationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13262F1F5EA9E100ABE06B /* HomePageEvaluationViewController.swift */; };
+		EB317D801FD5722F00CD1799 /* ProjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB317D7F1FD5722F00CD1799 /* ProjectExtensions.swift */; };
 		EB3B042F1FBD2A6E0033F492 /* AboutMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3B042E1FBD2A6E0033F492 /* AboutMeViewController.swift */; };
 		EB3B04311FBDC9100033F492 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3B04301FBDC9100033F492 /* DemoViewController.swift */; };
 		EB3D97871F5F8F7B007112C4 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3D97861F5F8F7B007112C4 /* MainTabBarController.swift */; };
@@ -34,6 +35,7 @@
 		6B9B17D6F0C91E78469A3FCE /* Pods_SeedProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SeedProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7744DD0BAE8FCC0CB300149 /* Pods-SeedProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeedProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SeedProject/Pods-SeedProject.debug.xcconfig"; sourceTree = "<group>"; };
 		EB13262F1F5EA9E100ABE06B /* HomePageEvaluationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageEvaluationViewController.swift; sourceTree = "<group>"; };
+		EB317D7F1FD5722F00CD1799 /* ProjectExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectExtensions.swift; sourceTree = "<group>"; };
 		EB3B042E1FBD2A6E0033F492 /* AboutMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeViewController.swift; sourceTree = "<group>"; };
 		EB3B04301FBDC9100033F492 /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
 		EB3D97861F5F8F7B007112C4 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			children = (
 				EB5D57BF1F5AE0B200C6DE5A /* SeedProject-Bridging-Header.h */,
 				EBA6020B1F5ECB6B00859861 /* ProjectFunctions.swift */,
+				EB317D7F1FD5722F00CD1799 /* ProjectExtensions.swift */,
 				EB6EC0971FB7093A001B70AF /* ProjectThemes.swift */,
 			);
 			path = Supports;
@@ -347,6 +350,7 @@
 				EB868D141FB7423400FD5A63 /* CustomNavigationBar.swift in Sources */,
 				EB3B04311FBDC9100033F492 /* DemoViewController.swift in Sources */,
 				EB1326301F5EA9E100ABE06B /* HomePageEvaluationViewController.swift in Sources */,
+				EB317D801FD5722F00CD1799 /* ProjectExtensions.swift in Sources */,
 				EB8421531F591D5B0055099F /* AppDelegate.swift in Sources */,
 				EB5D57C81F5B051500C6DE5A /* HomePageNewsViewController.swift in Sources */,
 				EB6006AB1FB5A681009F0D41 /* DefaultData.swift in Sources */,
