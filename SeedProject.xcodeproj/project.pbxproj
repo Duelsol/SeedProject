@@ -20,7 +20,7 @@
 		EB6EC0921FB6F5AF001B70AF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EB6EC0911FB6F5AF001B70AF /* Localizable.strings */; };
 		EB6EC0941FB70546001B70AF /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6EC0931FB70546001B70AF /* CommunityViewController.swift */; };
 		EB6EC0961FB70568001B70AF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6EC0951FB70568001B70AF /* SearchViewController.swift */; };
-		EB6EC0981FB7093A001B70AF /* ProjectThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6EC0971FB7093A001B70AF /* ProjectThemes.swift */; };
+		EB6EC0981FB7093A001B70AF /* ProjectConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6EC0971FB7093A001B70AF /* ProjectConst.swift */; };
 		EB8421531F591D5B0055099F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8421521F591D5B0055099F /* AppDelegate.swift */; };
 		EB8421581F591D5B0055099F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB8421561F591D5B0055099F /* Main.storyboard */; };
 		EB84215B1F591D5B0055099F /* SeedProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EB8421591F591D5B0055099F /* SeedProject.xcdatamodeld */; };
@@ -47,7 +47,7 @@
 		EB6EC0911FB6F5AF001B70AF /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		EB6EC0931FB70546001B70AF /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		EB6EC0951FB70568001B70AF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		EB6EC0971FB7093A001B70AF /* ProjectThemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectThemes.swift; sourceTree = "<group>"; };
+		EB6EC0971FB7093A001B70AF /* ProjectConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectConst.swift; sourceTree = "<group>"; };
 		EB84214F1F591D5B0055099F /* SeedProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeedProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB8421521F591D5B0055099F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB8421571F591D5B0055099F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -190,7 +190,7 @@
 				EB5D57BF1F5AE0B200C6DE5A /* SeedProject-Bridging-Header.h */,
 				EBA6020B1F5ECB6B00859861 /* ProjectFunctions.swift */,
 				EB317D7F1FD5722F00CD1799 /* ProjectExtensions.swift */,
-				EB6EC0971FB7093A001B70AF /* ProjectThemes.swift */,
+				EB6EC0971FB7093A001B70AF /* ProjectConst.swift */,
 			);
 			path = Supports;
 			sourceTree = "<group>";
@@ -341,7 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB6EC0981FB7093A001B70AF /* ProjectThemes.swift in Sources */,
+				EB6EC0981FB7093A001B70AF /* ProjectConst.swift in Sources */,
 				EB3B042F1FBD2A6E0033F492 /* AboutMeViewController.swift in Sources */,
 				EB84215B1F591D5B0055099F /* SeedProject.xcdatamodeld in Sources */,
 				EB6EC0961FB70568001B70AF /* SearchViewController.swift in Sources */,
