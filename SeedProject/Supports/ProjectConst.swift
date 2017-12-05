@@ -11,8 +11,8 @@ import DeviceKit
 
 let SCREEN_WIDTH = UIScreen.main.bounds.width
 let SCREEN_HEIGHT = UIScreen.main.bounds.height
-let NAVIGATIONBAR_HEIGHT: CGFloat = Device() == .iPhoneX ? 88 : 64
-let TABBAR_HEIGHT: CGFloat = Device() == .iPhoneX ? 83 : 49
+let NAVIGATIONBAR_HEIGHT: CGFloat = Device().isOneOf([.iPhoneX, .simulator(.iPhoneX)]) ? 88 : 64
+let TABBAR_HEIGHT: CGFloat = Device().isOneOf([.iPhoneX, .simulator(.iPhoneX)]) ? 83 : 49
 
 let VIEW_BACKGROUND_COLOR = UIColor.white
 
