@@ -32,7 +32,7 @@ func after(inSeconds seconds: Double, closure: @escaping () -> ()) {
 func createCustomNavBar(with item: UINavigationItem? = nil, replaceOf default: UINavigationController? = nil) -> UINavigationBar {
     `default`?.setNavigationBarHidden(true, animated: false)
     `default`?.hidesNavigationBarHairline = true
-    let customNavBar = CustomNavigationBar(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: NAVIGATIONBAR_HEIGHT))
+    let customNavBar = CustomNavigationBar(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: NAVIGATIONBAR_HEIGHT + STATUSBAR_HEIGHT))
     customNavBar.barTintColor = NAVIGATIONBAR_BACKGROUND_COLOR
     customNavBar.tintColor = NAVIGATIONBAR_TEXT_COLOR
     if item != nil {
