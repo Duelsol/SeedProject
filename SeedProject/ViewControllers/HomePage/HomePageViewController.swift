@@ -22,16 +22,15 @@ class HomePageViewController: ButtonBarPagerTabStripViewController {
         settings.style.buttonBarLeftContentInset = 0
         settings.style.buttonBarRightContentInset = 0
 
+        super.viewDidLoad()
+
         // 自定义导航栏
         let homePageNavItem = UINavigationItem()
         homePageNavItem.titleView = buttonBarView
         let customNavBar = createCustomNavBar(with: homePageNavItem, replaceOf: navigationController)
         view.addSubview(customNavBar)
 
-        let size = UIScreen.main.bounds.size
-        containerView.frame = CGRect(x: 0, y: customNavBar.frame.height, width: size.width, height: size.height - customNavBar.frame.height)
-
-        super.viewDidLoad()
+        containerView.frame = CGRect(x: 0, y: STATUSBAR_HEIGHT + NAVIGATIONBAR_HEIGHT, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - STATUSBAR_HEIGHT - NAVIGATIONBAR_HEIGHT - TABBAR_HEIGHT)
     }
 
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {

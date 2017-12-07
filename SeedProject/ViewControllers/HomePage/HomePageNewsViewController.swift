@@ -8,6 +8,7 @@
 
 import XLPagerTabStrip
 import SnapKit
+import MJRefresh
 
 class HomePageNewsViewController: UIViewController, IndicatorInfoProvider, UITableViewDelegate, UITableViewDataSource {
 
@@ -26,6 +27,8 @@ class HomePageNewsViewController: UIViewController, IndicatorInfoProvider, UITab
                 make.edges.equalTo(view)
             }
         }
+        newsTableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(loadNewData))
+        newsTableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreData))
     }
 
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
@@ -44,6 +47,26 @@ class HomePageNewsViewController: UIViewController, IndicatorInfoProvider, UITab
         let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath)
         cell.textLabel?.text = DefaultData.newsContent[indexPath.row]
         return cell
+    }
+
+    @objc func loadNewData() {
+        let count = DefaultData.newsCount
+        for i in count + 1 ... count + DefaultData.newsNextGrowingCount {
+            DefaultData.newsCount = DefaultData.newsCount + 1
+            DefaultData.newsContent.insert("内容\(i)", at: 0)
+        }
+        newsTableView.reloadData()
+        newsTableView.mj_header.endRefreshing()
+    }
+
+    @objc func loadMoreData() {
+        let count = DefaultData.newsCount
+        for i in count + 1 ... count + DefaultData.newsNextGrowingCount {
+            DefaultData.newsCount = DefaultData.newsCount + 1
+            DefaultData.newsContent.append("内容\(i)")
+        }
+        newsTableView.reloadData()
+        newsTableView.mj_footer.endRefreshing()
     }
 
 }
