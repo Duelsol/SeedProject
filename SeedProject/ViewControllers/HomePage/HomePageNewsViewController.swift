@@ -42,7 +42,7 @@ class HomePageNewsViewController: UIViewController, IndicatorInfoProvider, UITab
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DefaultData.newsCount
+        return DefaultData.newsContent.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -52,20 +52,18 @@ class HomePageNewsViewController: UIViewController, IndicatorInfoProvider, UITab
     }
 
     @objc func loadNewData() {
-        let count = DefaultData.newsCount
+        let count = DefaultData.newsContent.count
         for i in count + 1 ... count + DefaultData.newsNextGrowingCount {
-            DefaultData.newsCount = DefaultData.newsCount + 1
-            DefaultData.newsContent.insert("内容\(i)", at: 0)
+            DefaultData.newsContent.insert("新闻\(i)", at: 0)
         }
         newsTableView.reloadData()
         newsTableView.mj_header.endRefreshing()
     }
 
     @objc func loadMoreData() {
-        let count = DefaultData.newsCount
+        let count = DefaultData.newsContent.count
         for i in count + 1 ... count + DefaultData.newsNextGrowingCount {
-            DefaultData.newsCount = DefaultData.newsCount + 1
-            DefaultData.newsContent.append("内容\(i)")
+            DefaultData.newsContent.append("新闻\(i)")
         }
         newsTableView.reloadData()
         newsTableView.mj_footer.endRefreshing()
