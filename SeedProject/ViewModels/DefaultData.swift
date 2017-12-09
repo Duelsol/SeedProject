@@ -17,7 +17,7 @@ struct DefaultData {
     static var newsContent: [String] = {
         var result = [String]()
         for i in 1 ... DefaultData.newsCount {
-            result.append("内容\(i)")
+            result.append("新闻\(i)")
         }
         return result
     }()

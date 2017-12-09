@@ -17,6 +17,8 @@ class HomePageNewsViewController: UIViewController, IndicatorInfoProvider, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // 点击状态栏回到列表顶部，如果一个界面有多个scrollView，要将其他的设为false
+        newsTableView.scrollsToTop = true
         newsTableView.delegate = self
         newsTableView.dataSource = self
         newsTableView.snp.makeConstraints {
