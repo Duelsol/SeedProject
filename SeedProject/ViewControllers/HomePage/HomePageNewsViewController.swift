@@ -46,7 +46,7 @@ class HomePageNewsViewController: UIViewController, IndicatorInfoProvider, UITab
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HomePageNewsCell", for: indexPath)
         cell.textLabel?.text = DefaultData.newsContent[indexPath.row]
         return cell
     }

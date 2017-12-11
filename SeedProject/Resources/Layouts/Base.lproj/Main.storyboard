@@ -112,7 +112,7 @@
         <!--Home Page News View Controller-->
         <scene sceneID="Ito-b7-30A">
             <objects>
-                <viewController storyboardIdentifier="homePageNews" id="cxb-Rg-kfP" customClass="HomePageNewsViewController" customModule="SeedProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomePageNews" id="cxb-Rg-kfP" customClass="HomePageNewsViewController" customModule="SeedProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZJo-QE-g3x"/>
                         <viewControllerLayoutGuide type="bottom" id="Ea7-mv-EFa"/>
@@ -126,7 +126,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="newsCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="newsCell" id="aEi-rq-syy">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="HomePageNewsCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomePageNewsCell" id="aEi-rq-syy">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aEi-rq-syy" id="b0y-UD-SXr">
@@ -151,7 +151,7 @@
         <!--Home Page Evaluation View Controller-->
         <scene sceneID="aHz-hN-Md6">
             <objects>
-                <viewController storyboardIdentifier="homePageEvaluation" id="u16-fO-uej" customClass="HomePageEvaluationViewController" customModule="SeedProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomePageEvaluation" id="u16-fO-uej" customClass="HomePageEvaluationViewController" customModule="SeedProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6Ov-tB-9Gg"/>
                         <viewControllerLayoutGuide type="bottom" id="AVf-JY-uo1"/>
@@ -169,7 +169,7 @@
         <!--Home Page Tutorial View Controller-->
         <scene sceneID="CWH-bA-geG">
             <objects>
-                <viewController storyboardIdentifier="homePageTutorial" id="M41-2w-WgA" customClass="HomePageTutorialViewController" customModule="SeedProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomePageTutorial" id="M41-2w-WgA" customClass="HomePageTutorialViewController" customModule="SeedProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HjY-BH-2Vk"/>
                         <viewControllerLayoutGuide type="bottom" id="rox-QY-2by"/>
