@@ -16,6 +16,7 @@ class CommunityViewController: UIViewController {
         // 自定义导航栏
         let titleLabel = UILabel()
         titleLabel.text = NSLocalizedString("tabBar.community.title", comment: "")
+        titleLabel.font = UIFont.systemFont(ofSize: NAVIGATIONBAR_TITLE_SIZE)
         titleLabel.textColor = NAVIGATIONBAR_TEXT_COLOR
         let homePageNavItem = UINavigationItem()
         homePageNavItem.titleView = titleLabel
