@@ -12,12 +12,24 @@ struct DefaultData {
 
     static let newsNextGrowingCount = 10
 
-    static var newsContent: [String] = {
+    static var news: [String] = {
         var result = [String]()
         for i in 1 ... 20 {
             result.append("新闻\(i)")
         }
         return result
+    }()
+
+    static let communities: [String: [String]] = {
+        var sections = [String: [String]]()
+        for i in 1 ... 5 {
+            var cells = [String]()
+            for j in 1 ... 4 {
+                cells.append("单元\(j)")
+            }
+            sections.updateValue(cells, forKey: "分类\(i)")
+        }
+        return sections
     }()
 
     static var hotSearches: [String] = {
