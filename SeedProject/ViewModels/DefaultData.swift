@@ -20,14 +20,14 @@ struct DefaultData {
         return result
     }()
 
-    static let communities: [String: [String]] = {
-        var sections = [String: [String]]()
+    static let communities: [[String: [String]]] = {
+        var sections = [[String: [String]]]()
         for i in 1 ... 5 {
             var cells = [String]()
             for j in 1 ... 4 {
                 cells.append("单元\(j)")
             }
-            sections.updateValue(cells, forKey: "分类\(i)")
+            sections.append(["分类\(i)": cells])
         }
         return sections
     }()
