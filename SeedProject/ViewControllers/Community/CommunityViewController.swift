@@ -45,6 +45,7 @@ class CommunityViewController: UIViewController, UICollectionViewDelegate, UICol
         layout.minimumLineSpacing = SPACING
         layout.itemSize = ITEM_SIZE
         layout.sectionInset = UIEdgeInsets(top: 0, left: SPACING, bottom: SPACING, right: SPACING)
+        layout.footerReferenceSize = CGSize(width: SCREEN_WIDTH, height: 8)
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -67,7 +68,6 @@ class CommunityViewController: UIViewController, UICollectionViewDelegate, UICol
         } else if kind == UICollectionElementKindSectionFooter {
             let sectionFooter = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "CommunitySectionFooter", for: indexPath)
             sectionFooter.backgroundColor = UIColor.flatWhite()
-            sectionFooter.frame.size.height = 8
             return sectionFooter
         }
         return UICollectionReusableView()
