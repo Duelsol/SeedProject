@@ -15,6 +15,7 @@ let STATUSBAR_HEIGHT: CGFloat = Device().isOneOf([.iPhoneX, .simulator(.iPhoneX)
 let NAVIGATIONBAR_HEIGHT: CGFloat = 44
 let NAVIGATIONBAR_TITLE_SIZE: CGFloat = 18
 let TABBAR_HEIGHT: CGFloat = Device().isOneOf([.iPhoneX, .simulator(.iPhoneX)]) ? 83 : 49
+let SAFE_AREA = CGRect(x: 0, y: STATUSBAR_HEIGHT + NAVIGATIONBAR_HEIGHT, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - STATUSBAR_HEIGHT - NAVIGATIONBAR_HEIGHT - TABBAR_HEIGHT)
 
 let VIEW_BACKGROUND_COLOR = UIColor.white
 

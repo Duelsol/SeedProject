@@ -30,7 +30,7 @@ class HomePageViewController: ButtonBarPagerTabStripViewController {
         let customNavBar = createCustomNavBar(with: homePageNavItem, replaceOf: navigationController)
         view.addSubview(customNavBar)
 
-        containerView.frame = CGRect(x: 0, y: STATUSBAR_HEIGHT + NAVIGATIONBAR_HEIGHT, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - STATUSBAR_HEIGHT - NAVIGATIONBAR_HEIGHT - TABBAR_HEIGHT)
+        containerView.frame = SAFE_AREA
     }
 
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
