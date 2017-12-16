@@ -9,13 +9,23 @@
 import UIKit
 import SnapKit
 
+// 固定间距
+fileprivate let SPACING: CGFloat = 26
+fileprivate let TEXT_HEIGHT: CGFloat = 20
+fileprivate let ITEM_SIZE: CGSize = {
+    // 每一行显示2个
+    let width = (SCREEN_WIDTH - SPACING * 3) / 2
+    // 黄金比例为0.618，20是文字显示的高度
+    let height = width * 0.618 + TEXT_HEIGHT
+    return CGSize(width: width, height: height)
+}()
+
 class CommunityViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var communityCollectionView: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.lightGray
 
         // 自定义导航栏
         let titleLabel = UILabel()
@@ -29,7 +39,12 @@ class CommunityViewController: UIViewController, UICollectionViewDelegate, UICol
 
         communityCollectionView.delegate = self
         communityCollectionView.dataSource = self
-        communityCollectionView.frame = CGRect(x: 0, y: STATUSBAR_HEIGHT + NAVIGATIONBAR_HEIGHT, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - STATUSBAR_HEIGHT - NAVIGATIONBAR_HEIGHT - TABBAR_HEIGHT)
+        communityCollectionView.frame = SAFE_AREA
+        let layout = communityCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.minimumInteritemSpacing = SPACING
+        layout.minimumLineSpacing = SPACING
+        layout.itemSize = ITEM_SIZE
+        layout.sectionInset = UIEdgeInsets(top: 0, left: SPACING, bottom: SPACING, right: SPACING)
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -44,7 +59,16 @@ class CommunityViewController: UIViewController, UICollectionViewDelegate, UICol
         if kind == UICollectionElementKindSectionHeader {
             let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "CommunitySectionHeader", for: indexPath) as! CommunityCollectionSectionHeader
             sectionHeader.label.text = DefaultData.communities[indexPath.section].keys.first
+            sectionHeader.label.snp.makeConstraints {
+                make in
+                make.center.equalToSuperview()
+            }
             return sectionHeader
+        } else if kind == UICollectionElementKindSectionFooter {
+            let sectionFooter = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "CommunitySectionFooter", for: indexPath)
+            sectionFooter.backgroundColor = UIColor.flatWhite()
+            sectionFooter.frame.size.height = 8
+            return sectionFooter
         }
         return UICollectionReusableView()
     }
@@ -52,8 +76,32 @@ class CommunityViewController: UIViewController, UICollectionViewDelegate, UICol
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CommunityCell", for: indexPath) as! CommunityCollectionViewCell
         cell.imageView.backgroundColor = UIColor.randomFlat()
+        cell.imageView.layer.cornerRadius = 8
+        cell.imageView.snp.makeConstraints {
+            make in
+            make.width.equalTo(ITEM_SIZE.width)
+            make.height.equalTo(ITEM_SIZE.height - TEXT_HEIGHT)
+        }
         cell.label.text = DefaultData.communities[indexPath.section].first!.value[indexPath.row]
+        cell.label.snp.makeConstraints {
+            make in
+            make.leading.equalTo(cell.imageView)
+            make.bottom.equalTo(cell.imageView).offset(TEXT_HEIGHT)
+        }
         return cell
     }
+
+}
+
+class CommunityCollectionViewCell: UICollectionViewCell {
+
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var label: UILabel!
+
+}
+
+class CommunityCollectionSectionHeader: UICollectionReusableView {
+
+    @IBOutlet weak var label: UILabel!
 
 }

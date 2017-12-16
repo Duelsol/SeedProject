@@ -21,3 +21,31 @@ extension String {
     }
 
 }
+
+extension UIImage {
+
+    /// 给UIImage添加圆角
+    func drawRectWithRoundedCorner(size: CGSize, radius: CGFloat) -> UIImage {
+        let rect = CGRect(origin: CGPoint.zero, size: size)
+        let context = UIGraphicsGetCurrentContext()!
+
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, UIScreen.main.scale)
+        context.addPath(UIBezierPath(roundedRect: rect, byRoundingCorners: UIRectCorner.allCorners, cornerRadii: CGSize(width: radius, height: radius)).cgPath)
+        UIGraphicsGetCurrentContext()!.clip()
+        draw(in: rect)
+        context.drawPath(using: .fillStroke)
+
+        let output = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return output!
+    }
+
+}
+
+extension UIImageView {
+
+    func addCorner(radius: CGFloat) {
+        image = image?.drawRectWithRoundedCorner(size: bounds.size, radius: radius)
+    }
+
+}
