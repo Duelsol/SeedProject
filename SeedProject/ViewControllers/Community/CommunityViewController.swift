@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 // 固定间距
-fileprivate let SPACING: CGFloat = 26
+fileprivate let SPACING: CGFloat = 12
 fileprivate let TEXT_HEIGHT: CGFloat = 20
 fileprivate let ITEM_SIZE: CGSize = {
     // 每一行显示2个
