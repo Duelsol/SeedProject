@@ -35,6 +35,7 @@ func createCustomNavBar(with item: UINavigationItem? = nil, replaceOf default: U
     let customNavBar = CustomNavigationBar(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: NAVIGATIONBAR_HEIGHT + STATUSBAR_HEIGHT))
     customNavBar.barTintColor = NAVIGATIONBAR_BACKGROUND_COLOR
     customNavBar.tintColor = NAVIGATIONBAR_TEXT_COLOR
+    customNavBar.shadowImage = UIImage()
     if item != nil {
         customNavBar.setItems([item!], animated: false)
     }
