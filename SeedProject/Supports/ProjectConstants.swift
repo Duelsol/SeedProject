@@ -19,8 +19,8 @@ let SAFE_AREA = CGRect(x: 0, y: STATUSBAR_HEIGHT + NAVIGATIONBAR_HEIGHT, width: 
 
 let VIEW_BACKGROUND_COLOR = UIColor.white
 
-let TABBAR_ITEM_COLOR = UIColor.flatWatermelonColorDark()
+let TABBAR_ITEM_COLOR = UIColor.flatWatermelonColorDark()!
 let TABBAR_TEXT_COLOR = UIColor.white
 
-let NAVIGATIONBAR_BACKGROUND_COLOR = UIColor.flatWatermelonColorDark()
+let NAVIGATIONBAR_BACKGROUND_COLOR = UIColor.flatWatermelonColorDark()!
 let NAVIGATIONBAR_TEXT_COLOR = UIColor.white

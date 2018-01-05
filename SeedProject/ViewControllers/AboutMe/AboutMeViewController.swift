@@ -37,13 +37,16 @@ class AboutMeViewController: UIViewController, UIScrollViewDelegate {
         let homePageNavItem = UINavigationItem()
         homePageNavItem.rightBarButtonItem = shareBarButtonItem
         let customNavBar = createCustomNavBar(with: homePageNavItem, replaceOf: navigationController)
+        customNavBar.isTranslucent = true
         // 背景透明
-        customNavBar.setBackgroundImage(UIImage(), for: .default)
+        let color = UIColor(hexString: NAVIGATIONBAR_BACKGROUND_COLOR.hexValue(), withAlpha: 0)
+        customNavBar.setBackgroundImage(UIImage.initWithColor(color!), for: .default)
         view.addSubview(customNavBar)
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
+        // 下拉放大
         if offsetY < -coverHeight {
             var frame = scrollView.frame
             frame.origin.y = offsetY
