@@ -13,7 +13,7 @@ class AboutMeViewController: UIViewController, UIScrollViewDelegate {
     let scrollView = UIScrollView()
     let aboutMeCover = UIImageView(image: UIImage(named: "aboutme-cover")!)
     var customNavBar: UINavigationBar?
-    let coverHeight = STATUSBAR_HEIGHT + NAVIGATIONBAR_HEIGHT * 3
+    let coverHeight = STATUSBAR_HEIGHT + NAVIGATIONBAR_HEIGHT * 5
     let alphaOffset: CGFloat = 44
 
     override func viewDidLoad() {
@@ -36,6 +36,7 @@ class AboutMeViewController: UIViewController, UIScrollViewDelegate {
         // 个人主页封面
         aboutMeCover.frame = CGRect(x: 0, y: -coverHeight, width: SCREEN_WIDTH, height: coverHeight)
         aboutMeCover.contentMode = .scaleAspectFill
+        aboutMeCover.clipsToBounds = true
         scrollView.addSubview(aboutMeCover)
 
         // 自定义导航栏
@@ -56,7 +57,7 @@ class AboutMeViewController: UIViewController, UIScrollViewDelegate {
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y - scrollView.layoutMargins.top
+        let offsetY = scrollView.contentOffset.y
         if offsetY >= -(STATUSBAR_HEIGHT + NAVIGATIONBAR_HEIGHT) {
             customNavBar!.isTranslucent = false
         }
@@ -71,7 +72,7 @@ class AboutMeViewController: UIViewController, UIScrollViewDelegate {
             aboutMeCover.frame = frame
         }
         // 上拉渐变
-        else if offsetY >= -(STATUSBAR_HEIGHT + NAVIGATIONBAR_HEIGHT + alphaOffset) {
+        else {
             customNavBar!.isTranslucent = true
             let alpha = (offsetY + STATUSBAR_HEIGHT + NAVIGATIONBAR_HEIGHT + alphaOffset) / alphaOffset
             adjustNavBarBackgroundImageAlpha(alpha)
