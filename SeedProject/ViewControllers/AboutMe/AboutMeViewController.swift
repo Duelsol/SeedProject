@@ -24,8 +24,6 @@ class AboutMeViewController: UIViewController, UIScrollViewDelegate {
         scrollView.contentSize = CGSize(width: 0, height: SCREEN_HEIGHT * 2)
         // 上方留出高度放封面图片
         scrollView.contentInset = UIEdgeInsets(top: coverHeight, left: 0, bottom: 0, right: 0)
-        // 初始滚动位置
-        scrollView.contentOffset = CGPoint(x: 0, y: -coverHeight)
         // 不自动调整内边距
         if #available(iOS 11.0, *) {
             scrollView.contentInsetAdjustmentBehavior = .never
@@ -47,9 +45,14 @@ class AboutMeViewController: UIViewController, UIScrollViewDelegate {
         customNavBar = createCustomNavBar(with: homePageNavItem, replaceOf: navigationController)
         customNavBar!.isTranslucent = true
         // 背景透明
-        let color = UIColor(hexString: NAVIGATIONBAR_BACKGROUND_COLOR.hexValue(), withAlpha: 0)
-        customNavBar!.setBackgroundImage(UIImage.initWithColor(color!), for: .default)
+        adjustNavBarBackgroundImageAlpha(0)
         view.addSubview(customNavBar!)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // 初始滚动位置
+        scrollView.contentOffset = CGPoint(x: 0, y: -coverHeight)
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -60,6 +63,8 @@ class AboutMeViewController: UIViewController, UIScrollViewDelegate {
         // 下拉放大
         else if offsetY <= -coverHeight {
             customNavBar!.isTranslucent = true
+            adjustNavBarBackgroundImageAlpha(0)
+
             var frame = scrollView.frame
             frame.origin.y = offsetY
             frame.size.height = -offsetY
@@ -68,10 +73,14 @@ class AboutMeViewController: UIViewController, UIScrollViewDelegate {
         // 上拉渐变
         else if offsetY >= -(STATUSBAR_HEIGHT + NAVIGATIONBAR_HEIGHT + alphaOffset) {
             customNavBar!.isTranslucent = true
-            let alpha = (offsetY + coverHeight - alphaOffset) / alphaOffset
-            let color = UIColor(hexString: NAVIGATIONBAR_BACKGROUND_COLOR.hexValue(), withAlpha: alpha)
-            customNavBar!.setBackgroundImage(UIImage.initWithColor(color!), for: .default)
+            let alpha = (offsetY + STATUSBAR_HEIGHT + NAVIGATIONBAR_HEIGHT + alphaOffset) / alphaOffset
+            adjustNavBarBackgroundImageAlpha(alpha)
         }
+    }
+
+    private func adjustNavBarBackgroundImageAlpha(_ alpha: CGFloat) {
+        let color = UIColor(hexString: NAVIGATIONBAR_BACKGROUND_COLOR.hexValue(), withAlpha: alpha)
+        customNavBar!.setBackgroundImage(UIImage.initWithColor(color!), for: .default)
     }
 
 }
