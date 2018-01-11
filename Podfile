@@ -3,7 +3,7 @@ platform :ios, '8.0'
 use_frameworks!
 inhibit_all_warnings!
 
-target ‘SeedProject’ do
+target 'SeedProject' do
     pod 'Alamofire'
     pod 'ChameleonFramework'
     pod 'DeviceKit'
@@ -11,7 +11,8 @@ target ‘SeedProject’ do
     pod 'MagicalRecord'
     pod 'MBProgressHUD'
     pod 'MJRefresh'
-    pod ‘PYSearch’
+    pod 'PYSearch'
+    pod 'Reveal-SDK', :configurations => ['Debug']
     pod 'SDWebImage'
     pod 'SnapKit'
     pod 'SwiftyJSON'
