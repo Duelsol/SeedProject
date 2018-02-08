@@ -8,8 +8,8 @@
 
 import Foundation
 
-/// To use the  #if DEBUG macro then you have to define
-/// the "Swift Compiler - Custom Flags -Other Flags" to contain the value -D DEBUG
+/// Release版本过滤print输出内容
+/// 需要在Swift Compiler - Custom Flags中的Active Compilation Conditions项增加DEBUG变量
 func print(_ items: Any..., separator: String = " ", terminator: String = "\n") {
     #if DEBUG
         var startIndex = items.startIndex
@@ -23,9 +23,40 @@ func print(_ items: Any..., separator: String = " ", terminator: String = "\n") 
 }
 
 /// 延时调用
-func after(inSeconds seconds: Double, closure: @escaping () -> ()) {
-    let delayTime = DispatchTime.now() + Double(Int64(seconds * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
-    DispatchQueue.main.asyncAfter(deadline: delayTime, execute: closure)
+typealias Task = (_ cancel: Bool) -> Void
+
+func delay(_ seconds: TimeInterval, task: @escaping () -> ()) -> Task? {
+    func dispatch_later(block: @escaping () -> ()) {
+        let delayTime = DispatchTime.now() + seconds
+        DispatchQueue.main.asyncAfter(deadline: delayTime, execute: block)
+    }
+
+    var closure: (() -> Void)? = task
+    var result: Task?
+
+    let delayedClosure: Task = {
+        cancel in
+        if let internalClosure = closure {
+            if cancel == false {
+                DispatchQueue.main.async(execute: internalClosure)
+            }
+        }
+        closure = nil
+        result = nil
+    }
+    result = delayedClosure
+
+    dispatch_later {
+        if let delayedClosure = result {
+            delayedClosure(false)
+        }
+    }
+
+    return result
+}
+
+func cancel(_ task: Task?) {
+    task?(true)
 }
 
 /// 创建项目导航栏
