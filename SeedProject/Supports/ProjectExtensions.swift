@@ -8,6 +8,64 @@
 
 import Foundation
 
+protocol Formattable {
+
+    /// 转化为NSNumber
+    func number() -> NSNumber
+
+    /// 格式化数字
+    func format(_ pattern: String) -> String?
+
+}
+
+extension Formattable {
+
+    func number() -> NSNumber {
+        switch self {
+        case is Int:
+            return NSNumber(value: self as! Int)
+        case is Double:
+            return NSNumber(value: self as! Double)
+        case is Float:
+            return NSNumber(value: self as! Float)
+        default:
+            return NSNumber()
+        }
+    }
+
+    func format(_ pattern: String = "#,##0.00") -> String? {
+        let numberFormatter = FormatterHolder.number
+        numberFormatter.positiveFormat = pattern
+        return numberFormatter.string(from: number())
+    }
+
+}
+
+protocol Fixable {
+
+    /// 保留小数
+    func fix(_ digits: Int) -> String
+
+}
+
+extension Int: Formattable {}
+
+extension Double: Formattable, Fixable {
+
+    func fix(_ digits: Int) -> String {
+        return String(format: "%.\(digits)f", self)
+    }
+
+}
+
+extension Float: Formattable, Fixable {
+
+    func fix(_ digits: Int) -> String {
+        return String(format: "%.\(digits)f", self)
+    }
+
+}
+
 extension String {
 
     /// 将文字转为拼音
@@ -18,6 +76,24 @@ extension String {
         // 再转成去掉音标的拼音
         CFStringTransform(string, nil, kCFStringTransformStripDiacritics, false)
         return string.replacingOccurrences(of: " ", with: "")
+    }
+
+    /// 从字符串解析日期
+    func date(_ pattern: String = "yyyy-MM-dd") -> Date? {
+        let dateFormatter = FormatterHolder.date
+        dateFormatter.dateFormat = pattern
+        return dateFormatter.date(from: self)
+    }
+
+}
+
+extension Date {
+
+    /// 格式化日期
+    func string(_ pattern: String = "yyyy-MM-dd") -> String {
+        let dateFormatter = FormatterHolder.date
+        dateFormatter.dateFormat = pattern
+        return dateFormatter.string(from: self)
     }
 
 }

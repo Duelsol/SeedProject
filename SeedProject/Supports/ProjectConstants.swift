@@ -24,3 +24,22 @@ let TABBAR_TEXT_COLOR = UIColor.white
 
 let NAVIGATIONBAR_BACKGROUND_COLOR = UIColor.flatWatermelonColorDark()!
 let NAVIGATIONBAR_TEXT_COLOR = UIColor.white
+
+fileprivate let numberFormatter = NumberFormatter()
+fileprivate let dateFormatter = DateFormatter()
+
+struct FormatterHolder {
+
+    static let number: NumberFormatter = {
+        numberFormatter.locale = Locale(identifier: "zh_CN")
+        return numberFormatter
+    }()
+    static let date: DateFormatter = {
+        dateFormatter.locale = Locale(identifier: "zh_CN")
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+        return dateFormatter
+    }()
+
+    private init() {}
+    
+}
