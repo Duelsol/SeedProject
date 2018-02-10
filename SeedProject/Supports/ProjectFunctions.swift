@@ -59,6 +59,13 @@ func cancel(_ task: Task?) {
     task?(true)
 }
 
+/// 并发锁
+func synchronized(_ lock: AnyObject, closue: () -> ()) {
+    objc_sync_enter(lock)
+    closue()
+    objc_sync_exit(lock)
+}
+
 /// 创建项目导航栏
 func createCustomNavBar(with item: UINavigationItem? = nil, replaceOf default: UINavigationController? = nil) -> UINavigationBar {
     `default`?.setNavigationBarHidden(true, animated: false)
