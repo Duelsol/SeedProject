@@ -12,6 +12,7 @@ target 'SeedProject' do
     pod 'MBProgressHUD'
     pod 'MJRefresh'
     pod 'PYSearch'
+    pod 'R.swift'
     pod 'Reveal-SDK', :configurations => ['Debug']
     pod 'SDWebImage'
     pod 'SnapKit'

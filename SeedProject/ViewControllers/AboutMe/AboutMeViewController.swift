@@ -11,7 +11,7 @@ import UIKit
 class AboutMeViewController: UIViewController, UIScrollViewDelegate {
 
     let scrollView = UIScrollView()
-    let aboutMeCover = UIImageView(image: UIImage(named: "aboutme-cover")!)
+    let aboutMeCover = UIImageView(image: R.image.aboutmeCover())
     var customNavBar: UINavigationBar?
     let coverHeight = STATUSBAR_HEIGHT + NAVIGATIONBAR_HEIGHT * 5
     let alphaOffset: CGFloat = 44
@@ -40,7 +40,7 @@ class AboutMeViewController: UIViewController, UIScrollViewDelegate {
         scrollView.addSubview(aboutMeCover)
 
         // 自定义导航栏
-        let shareBarButtonItem = UIBarButtonItem(image: UIImage(named: "share"), style: .plain, target: nil, action: nil)
+        let shareBarButtonItem = UIBarButtonItem(image: R.image.share(), style: .plain, target: nil, action: nil)
         let homePageNavItem = UINavigationItem()
         homePageNavItem.rightBarButtonItem = shareBarButtonItem
         customNavBar = createCustomNavBar(with: homePageNavItem, replaceOf: navigationController)

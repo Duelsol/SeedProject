@@ -22,6 +22,11 @@ func print(_ items: Any..., separator: String = " ", terminator: String = "\n") 
     #endif
 }
 
+/// 格式化打印日志
+func log<T>(_ message: T, file: String = #file, method: String = #function, line: Int = #line) {
+    print("\((file as NSString).lastPathComponent)[\(line)], \(method): \(message)")
+}
+
 /// 延时调用
 typealias Task = (_ cancel: Bool) -> Void
 

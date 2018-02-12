@@ -19,7 +19,7 @@ class DemoViewController: UIViewController {
         titleLabel.textColor = NAVIGATIONBAR_TEXT_COLOR
         let navItem = UINavigationItem()
         navItem.titleView = titleLabel
-        navItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "arrow-left"), style: .plain, target: self, action: #selector(backTapped))
+        navItem.leftBarButtonItem = UIBarButtonItem(image: R.image.arrowLeft(), style: .plain, target: self, action: #selector(backTapped))
         let customNavBar = createCustomNavBar(with: navItem, replaceOf: navigationController)
         view.addSubview(customNavBar)
     }

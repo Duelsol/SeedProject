@@ -19,7 +19,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         definesPresentationContext = true
 
-        searchViewController = PYSearchViewController(hotSearches: DefaultData.hotSearches, searchBarPlaceholder: NSLocalizedString("search.searchBar.placeholder", comment: ""), didSearch: {
+        searchViewController = PYSearchViewController(hotSearches: DefaultData.hotSearches, searchBarPlaceholder: R.string.localizable.searchSearchBarPlaceholder(), didSearch: {
             searchViewController, searchBar, searchText in
             self.segueToDemo(title: searchText)
         })

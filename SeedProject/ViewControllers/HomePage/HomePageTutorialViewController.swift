@@ -11,7 +11,7 @@ import XLPagerTabStrip
 class HomePageTutorialViewController: UIViewController, IndicatorInfoProvider {
 
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: NSLocalizedString("homePage.tutorial.title", comment: ""))
+        return IndicatorInfo(title: R.string.localizable.homePageTutorialTitle())
     }
     
 }

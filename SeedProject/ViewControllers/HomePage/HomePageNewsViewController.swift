@@ -34,7 +34,7 @@ class HomePageNewsViewController: UIViewController, IndicatorInfoProvider, UITab
     }
 
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: NSLocalizedString("homePage.news.title", comment: ""))
+        return IndicatorInfo(title: R.string.localizable.homePageNewsTitle())
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -46,7 +46,7 @@ class HomePageNewsViewController: UIViewController, IndicatorInfoProvider, UITab
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HomePageNewsCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.homePageNewsCell, for: indexPath)!
         cell.textLabel?.text = DefaultData.news[indexPath.row]
         return cell
     }

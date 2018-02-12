@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		020F0D019E7EC97F4940A0DA /* Pods_SeedProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B9B17D6F0C91E78469A3FCE /* Pods_SeedProject.framework */; };
 		EB1326301F5EA9E100ABE06B /* HomePageEvaluationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13262F1F5EA9E100ABE06B /* HomePageEvaluationViewController.swift */; };
+		EB2CE9682031852E00F7ECB9 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2CE9672031852D00F7ECB9 /* R.generated.swift */; };
 		EB317D801FD5722F00CD1799 /* ProjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB317D7F1FD5722F00CD1799 /* ProjectExtensions.swift */; };
 		EB3B042F1FBD2A6E0033F492 /* AboutMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3B042E1FBD2A6E0033F492 /* AboutMeViewController.swift */; };
 		EB3B04311FBDC9100033F492 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3B04301FBDC9100033F492 /* DemoViewController.swift */; };
@@ -35,6 +36,7 @@
 		6B9B17D6F0C91E78469A3FCE /* Pods_SeedProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SeedProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7744DD0BAE8FCC0CB300149 /* Pods-SeedProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeedProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SeedProject/Pods-SeedProject.debug.xcconfig"; sourceTree = "<group>"; };
 		EB13262F1F5EA9E100ABE06B /* HomePageEvaluationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageEvaluationViewController.swift; sourceTree = "<group>"; };
+		EB2CE9672031852D00F7ECB9 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		EB317D7F1FD5722F00CD1799 /* ProjectExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectExtensions.swift; sourceTree = "<group>"; };
 		EB3B042E1FBD2A6E0033F492 /* AboutMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeViewController.swift; sourceTree = "<group>"; };
 		EB3B04301FBDC9100033F492 /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				EB5D57BF1F5AE0B200C6DE5A /* SeedProject-Bridging-Header.h */,
+				EB2CE9672031852D00F7ECB9 /* R.generated.swift */,
 				EBA6020B1F5ECB6B00859861 /* ProjectFunctions.swift */,
 				EB317D7F1FD5722F00CD1799 /* ProjectExtensions.swift */,
 				EB6EC0971FB7093A001B70AF /* ProjectConstants.swift */,
@@ -223,6 +226,7 @@
 			buildConfigurationList = EB8421641F591D5B0055099F /* Build configuration list for PBXNativeTarget "SeedProject" */;
 			buildPhases = (
 				7BE98E74AD8D5D0B514FCE7E /* [CP] Check Pods Manifest.lock */,
+				EB2CE9662031843700F7ECB9 /* ShellScript */,
 				EB84214B1F591D5B0055099F /* Sources */,
 				EB84214C1F591D5B0055099F /* Frameworks */,
 				EB84214D1F591D5B0055099F /* Resources */,
@@ -304,6 +308,7 @@
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/MagicalRecord/MagicalRecord.framework",
 				"${BUILT_PRODUCTS_DIR}/PYSearch/PYSearch.framework",
+				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${PODS_ROOT}/Reveal-SDK/RevealServer-13/iOS/RevealServer.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
@@ -320,6 +325,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MagicalRecord.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PYSearch.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
@@ -364,6 +370,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SeedProject/Pods-SeedProject-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		EB2CE9662031843700F7ECB9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/SeedProject/Supports\"";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -379,6 +398,7 @@
 				EB3D97871F5F8F7B007112C4 /* MainTabBarController.swift in Sources */,
 				EB868D141FB7423400FD5A63 /* CustomNavigationBar.swift in Sources */,
 				EB3B04311FBDC9100033F492 /* DemoViewController.swift in Sources */,
+				EB2CE9682031852E00F7ECB9 /* R.generated.swift in Sources */,
 				EB1326301F5EA9E100ABE06B /* HomePageEvaluationViewController.swift in Sources */,
 				EB317D801FD5722F00CD1799 /* ProjectExtensions.swift in Sources */,
 				EB8421531F591D5B0055099F /* AppDelegate.swift in Sources */,

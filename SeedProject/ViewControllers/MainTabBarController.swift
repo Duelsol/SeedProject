@@ -19,13 +19,13 @@ class MainTabBarController: UITabBarController {
         for tabBarItem in tabBar.items! {
             switch tabBarItem.tag {
             case 0:
-                tabBarItem.title = NSLocalizedString("tabBar.homePage.title", comment: "")
+                tabBarItem.title = R.string.localizable.tabBarHomePageTitle()
             case 1:
-                tabBarItem.title = NSLocalizedString("tabBar.community.title", comment: "")
+                tabBarItem.title = R.string.localizable.tabBarCommunityTitle()
             case 2:
-                tabBarItem.title = NSLocalizedString("tabBar.search.title", comment: "")
+                tabBarItem.title = R.string.localizable.tabBarSearchTitle()
             case 3:
-                tabBarItem.title = NSLocalizedString("tabBar.aboutMe.title", comment: "")
+                tabBarItem.title = R.string.localizable.tabBarAboutMeTitle()
             default:
                 break
             }

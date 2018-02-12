@@ -29,7 +29,7 @@ class CommunityViewController: UIViewController, UICollectionViewDelegate, UICol
 
         // 自定义导航栏
         let titleLabel = UILabel()
-        titleLabel.text = NSLocalizedString("tabBar.community.title", comment: "")
+        titleLabel.text = R.string.localizable.tabBarCommunityTitle()
         titleLabel.font = UIFont.systemFont(ofSize: NAVIGATIONBAR_TITLE_SIZE)
         titleLabel.textColor = NAVIGATIONBAR_TEXT_COLOR
         let homePageNavItem = UINavigationItem()
@@ -58,7 +58,7 @@ class CommunityViewController: UIViewController, UICollectionViewDelegate, UICol
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionElementKindSectionHeader {
-            let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "CommunitySectionHeader", for: indexPath) as! CommunityCollectionSectionHeader
+            let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: R.reuseIdentifier.communitySectionHeader, for: indexPath)!
             sectionHeader.label.text = DefaultData.communities[indexPath.section].keys.first
             sectionHeader.label.snp.makeConstraints {
                 make in
@@ -66,7 +66,7 @@ class CommunityViewController: UIViewController, UICollectionViewDelegate, UICol
             }
             return sectionHeader
         } else if kind == UICollectionElementKindSectionFooter {
-            let sectionFooter = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "CommunitySectionFooter", for: indexPath)
+            let sectionFooter = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: R.reuseIdentifier.communitySectionFooter.identifier, for: indexPath)
             sectionFooter.backgroundColor = UIColor.flatWhite()
             return sectionFooter
         }
@@ -74,7 +74,7 @@ class CommunityViewController: UIViewController, UICollectionViewDelegate, UICol
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CommunityCell", for: indexPath) as! CommunityCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.communityCell, for: indexPath)!
         cell.imageView.backgroundColor = UIColor.randomFlat()
         cell.imageView.layer.cornerRadius = 8
         cell.imageView.snp.makeConstraints {

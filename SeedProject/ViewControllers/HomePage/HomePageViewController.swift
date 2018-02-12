@@ -34,9 +34,9 @@ class HomePageViewController: ButtonBarPagerTabStripViewController {
     }
 
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        let homePageNews = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomePageNews")
-        let homePageTutorial = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomePageTutorial")
-        let homePageEvaluation = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomePageEvaluation")
+        let homePageNews = R.storyboard.main.homePageNews()!
+        let homePageTutorial = R.storyboard.main.homePageTutorial()!
+        let homePageEvaluation = R.storyboard.main.homePageEvaluation()!
         return [homePageNews, homePageTutorial, homePageEvaluation]
     }
 
