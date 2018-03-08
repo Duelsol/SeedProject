@@ -14,6 +14,7 @@
 		EB3B042F1FBD2A6E0033F492 /* AboutMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3B042E1FBD2A6E0033F492 /* AboutMeViewController.swift */; };
 		EB3B04311FBDC9100033F492 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3B04301FBDC9100033F492 /* DemoViewController.swift */; };
 		EB3D97871F5F8F7B007112C4 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3D97861F5F8F7B007112C4 /* MainTabBarController.swift */; };
+		EB51F7FC2051598300E505F9 /* CustomNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51F7FB2051598300E505F9 /* CustomNotification.swift */; };
 		EB5D57C31F5AFD8E00C6DE5A /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D57C21F5AFD8E00C6DE5A /* HomePageViewController.swift */; };
 		EB5D57C81F5B051500C6DE5A /* HomePageNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D57C71F5B051500C6DE5A /* HomePageNewsViewController.swift */; };
 		EB5D57CA1F5B056F00C6DE5A /* HomePageTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D57C91F5B056F00C6DE5A /* HomePageTutorialViewController.swift */; };
@@ -41,6 +42,7 @@
 		EB3B042E1FBD2A6E0033F492 /* AboutMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeViewController.swift; sourceTree = "<group>"; };
 		EB3B04301FBDC9100033F492 /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
 		EB3D97861F5F8F7B007112C4 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		EB51F7FB2051598300E505F9 /* CustomNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNotification.swift; sourceTree = "<group>"; };
 		EB5D57BF1F5AE0B200C6DE5A /* SeedProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SeedProject-Bridging-Header.h"; sourceTree = "<group>"; };
 		EB5D57C21F5AFD8E00C6DE5A /* HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		EB5D57C71F5B051500C6DE5A /* HomePageNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageNewsViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				EB6006AA1FB5A681009F0D41 /* DefaultData.swift */,
+				EB51F7FB2051598300E505F9 /* CustomNotification.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				EB868D141FB7423400FD5A63 /* CustomNavigationBar.swift in Sources */,
 				EB3B04311FBDC9100033F492 /* DemoViewController.swift in Sources */,
 				EB2CE9682031852E00F7ECB9 /* R.generated.swift in Sources */,
+				EB51F7FC2051598300E505F9 /* CustomNotification.swift in Sources */,
 				EB1326301F5EA9E100ABE06B /* HomePageEvaluationViewController.swift in Sources */,
 				EB317D801FD5722F00CD1799 /* ProjectExtensions.swift in Sources */,
 				EB8421531F591D5B0055099F /* AppDelegate.swift in Sources */,
