@@ -25,7 +25,6 @@ struct NetworkManager {
                 case .success(let value):
                     let json = JSON(value)
                     let code = json["code"].numberValue
-                    print(code)
                     if code != 20000 {
                         // code为非"20000"时都表示发生错误
                     } else {
