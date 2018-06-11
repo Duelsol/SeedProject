@@ -9,6 +9,7 @@
 import XLPagerTabStrip
 import SnapKit
 import MJRefresh
+import SwiftyJSON
 
 class HomePageNewsViewController: UIViewController, IndicatorInfoProvider, UITableViewDelegate, UITableViewDataSource {
 
@@ -52,12 +53,13 @@ class HomePageNewsViewController: UIViewController, IndicatorInfoProvider, UITab
     }
 
     @objc func loadNewData() {
-        let count = DefaultData.news.count
-        for i in count + 1 ... count + DefaultData.newsNextGrowingCount {
-            DefaultData.news.insert("新闻\(i)", at: 0)
+        NetworkManager.shared.fetchNews { data in
+            for (_, subJson): (String, JSON) in data["items"] {
+                DefaultData.news.insert(subJson["title"].stringValue, at: 0)
+            }
+            self.newsTableView.reloadData()
+            self.newsTableView.mj_header.endRefreshing()
         }
-        newsTableView.reloadData()
-        newsTableView.mj_header.endRefreshing()
     }
 
     @objc func loadMoreData() {
