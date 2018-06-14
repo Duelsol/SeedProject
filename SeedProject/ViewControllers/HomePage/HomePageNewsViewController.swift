@@ -53,13 +53,14 @@ class HomePageNewsViewController: UIViewController, IndicatorInfoProvider, UITab
     }
 
     @objc func loadNewData() {
-        NetworkManager.shared.fetchNews { data in
+        NetworkManager.shared.fetchNews(success: { data in
             for (_, subJson): (String, JSON) in data["items"] {
                 DefaultData.news.insert(subJson["title"].stringValue, at: 0)
             }
+        }, finally: {
             self.newsTableView.reloadData()
             self.newsTableView.mj_header.endRefreshing()
-        }
+        })
     }
 
     @objc func loadMoreData() {
