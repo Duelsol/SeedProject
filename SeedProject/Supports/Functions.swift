@@ -27,6 +27,14 @@ func log<T>(_ message: T, file: String = #file, method: String = #function, line
     print("\((file as NSString).lastPathComponent)[\(line)], \(method): \(message)")
 }
 
+/// 从字符串创建class types
+func obtainClass(byName name: String) -> AnyClass? {
+    guard let namespace = Bundle.main.infoDictionary!["CFBundleExecutable"] as? String else {
+        return nil
+    }
+    return NSClassFromString("\(namespace).\(name)")
+}
+
 /// 延时调用
 typealias Task = (_ cancel: Bool) -> Void
 
@@ -82,8 +90,6 @@ func createCustomNavBar(with item: UINavigationItem? = nil, replaceOf default: U
     `default`?.setNavigationBarHidden(true, animated: false)
     `default`?.hidesNavigationBarHairline = true
     let customNavBar = CustomNavigationBar(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: NAVIGATIONBAR_HEIGHT + STATUSBAR_HEIGHT))
-    customNavBar.barTintColor = NAVIGATIONBAR_BACKGROUND_COLOR
-    customNavBar.tintColor = NAVIGATIONBAR_TEXT_COLOR
     customNavBar.isTranslucent = false
     customNavBar.shadowImage = UIImage()
     if item != nil {

@@ -9,7 +9,7 @@
 import UIKit
 import PYSearch
 
-class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PYSearchViewControllerDelegate {
+class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PYSearchViewControllerDelegate, ThemeUpdateProtocol {
 
     var searchViewController: PYSearchViewController?
     let searchResultTableView = UITableView()
@@ -24,7 +24,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.segueToDemo(title: searchText)
         })
         searchViewController!.delegate = self
-        searchViewController!.searchBar.tintColor = NAVIGATIONBAR_BACKGROUND_COLOR
 
         // 自定义导航栏
         let customNavBar = createCustomNavBar(with: UINavigationItem(), replaceOf: navigationController)
@@ -43,6 +42,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // 隐藏无数据行的分割线
         searchResultTableView.tableFooterView = UIView()
         view.addSubview(searchResultTableView)
+
+        addThemeObserver()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -54,6 +55,15 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 break
             }
         }
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    override func updateTheme() {
+        super.updateTheme()
+        searchViewController!.searchBar.tintColor = ThemeManager.shared.getColor(ofElement: .navigationBarBackground)
     }
 
     func searchViewController(_ searchViewController: PYSearchViewController!, searchTextDidChange searchBar: UISearchBar!, searchText: String!) {
@@ -110,7 +120,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     private func segueToDemo(title: String?) {
         let destination = DemoViewController()
         destination.title = title
-        destination.view.backgroundColor = VIEW_BACKGROUND_COLOR
         navigationController?.pushViewController(destination, animated: true)
     }
 

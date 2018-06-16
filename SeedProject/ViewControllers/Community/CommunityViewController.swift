@@ -20,21 +20,21 @@ fileprivate let ITEM_SIZE: CGSize = {
     return CGSize(width: width, height: height)
 }()
 
-class CommunityViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class CommunityViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, ThemeUpdateProtocol {
 
     @IBOutlet weak var communityCollectionView: UICollectionView!
+
+    let titleLabel = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // 自定义导航栏
-        let titleLabel = UILabel()
         titleLabel.text = R.string.localizable.tabBarCommunityTitle()
         titleLabel.font = UIFont.systemFont(ofSize: NAVIGATIONBAR_TITLE_SIZE)
-        titleLabel.textColor = NAVIGATIONBAR_TEXT_COLOR
-        let homePageNavItem = UINavigationItem()
-        homePageNavItem.titleView = titleLabel
-        let customNavBar = createCustomNavBar(with: homePageNavItem, replaceOf: navigationController)
+        let communityNavItem = UINavigationItem()
+        communityNavItem.titleView = titleLabel
+        let customNavBar = createCustomNavBar(with: communityNavItem, replaceOf: navigationController)
         view.addSubview(customNavBar)
 
         communityCollectionView.delegate = self
@@ -46,6 +46,17 @@ class CommunityViewController: UIViewController, UICollectionViewDelegate, UICol
         layout.itemSize = ITEM_SIZE
         layout.sectionInset = UIEdgeInsets(top: 0, left: SPACING, bottom: SPACING, right: SPACING)
         layout.footerReferenceSize = CGSize(width: SCREEN_WIDTH, height: 8)
+
+        addThemeObserver()
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    override func updateTheme() {
+        super.updateTheme()
+        titleLabel.textColor = ThemeManager.shared.getColor(ofElement: .navigationBarText)
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {

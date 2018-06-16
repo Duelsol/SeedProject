@@ -10,10 +10,10 @@ import Foundation
 
 enum CustomNotification: String {
 
-    case demo
+    case willUpdateTheme
 
     var stringValue: String {
-        return "Custom" + rawValue
+        return rawValue + "CustomNotification"
     }
 
     var notificationName: NSNotification.Name {

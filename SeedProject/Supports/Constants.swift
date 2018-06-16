@@ -19,16 +19,6 @@ let NAVIGATIONBAR_TITLE_SIZE: CGFloat = 18
 let TABBAR_HEIGHT: CGFloat = Device().isOneOf([.iPhoneX, .simulator(.iPhoneX)]) ? 83 : 49
 let SAFE_AREA = CGRect(x: 0, y: STATUSBAR_HEIGHT + NAVIGATIONBAR_HEIGHT, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - STATUSBAR_HEIGHT - NAVIGATIONBAR_HEIGHT - TABBAR_HEIGHT)
 
-/// Color
-
-let VIEW_BACKGROUND_COLOR = UIColor.white
-
-let TABBAR_ITEM_COLOR = UIColor.flatWatermelonColorDark()!
-let TABBAR_TEXT_COLOR = UIColor.white
-
-let NAVIGATIONBAR_BACKGROUND_COLOR = UIColor.flatWatermelonColorDark()!
-let NAVIGATIONBAR_TEXT_COLOR = UIColor.white
-
 /// Network
 
 let BASE_URL = "https://easy-mock.com/mock/5950a2419adc231f356a6636/vue-admin"

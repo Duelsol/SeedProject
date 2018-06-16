@@ -14,6 +14,9 @@
 		EB317D801FD5722F00CD1799 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB317D7F1FD5722F00CD1799 /* Extensions.swift */; };
 		EB3B042F1FBD2A6E0033F492 /* AboutMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3B042E1FBD2A6E0033F492 /* AboutMeViewController.swift */; };
 		EB3B04311FBDC9100033F492 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3B04301FBDC9100033F492 /* DemoViewController.swift */; };
+		EB3BDEC120D39ACC0067B2A3 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3BDEC020D39ACC0067B2A3 /* ThemeManager.swift */; };
+		EB3BDEC320D3B1AB0067B2A3 /* ThemeElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3BDEC220D3B1AB0067B2A3 /* ThemeElement.swift */; };
+		EB3BDEC520D53B930067B2A3 /* DefaultTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3BDEC420D53B930067B2A3 /* DefaultTheme.swift */; };
 		EB3D97871F5F8F7B007112C4 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3D97861F5F8F7B007112C4 /* MainTabBarController.swift */; };
 		EB51F7FC2051598300E505F9 /* CustomNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51F7FB2051598300E505F9 /* CustomNotification.swift */; };
 		EB56872F20CD495400F4E681 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56872E20CD495400F4E681 /* NetworkManager.swift */; };
@@ -44,6 +47,9 @@
 		EB317D7F1FD5722F00CD1799 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EB3B042E1FBD2A6E0033F492 /* AboutMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeViewController.swift; sourceTree = "<group>"; };
 		EB3B04301FBDC9100033F492 /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
+		EB3BDEC020D39ACC0067B2A3 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		EB3BDEC220D3B1AB0067B2A3 /* ThemeElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeElement.swift; sourceTree = "<group>"; };
+		EB3BDEC420D53B930067B2A3 /* DefaultTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTheme.swift; sourceTree = "<group>"; };
 		EB3D97861F5F8F7B007112C4 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		EB51F7FB2051598300E505F9 /* CustomNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNotification.swift; sourceTree = "<group>"; };
 		EB56872E20CD495400F4E681 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -102,6 +108,16 @@
 				EB3B042E1FBD2A6E0033F492 /* AboutMeViewController.swift */,
 			);
 			path = AboutMe;
+			sourceTree = "<group>";
+		};
+		EB3BDEBF20D39AB20067B2A3 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				EB3BDEC020D39ACC0067B2A3 /* ThemeManager.swift */,
+				EB3BDEC220D3B1AB0067B2A3 /* ThemeElement.swift */,
+				EB3BDEC420D53B930067B2A3 /* DefaultTheme.swift */,
+			);
+			path = Theme;
 			sourceTree = "<group>";
 		};
 		EB56872D20CD391C00F4E681 /* Network */ = {
@@ -174,6 +190,7 @@
 				EB56872D20CD391C00F4E681 /* Network */,
 				EB84216B1F591DFD0055099F /* Resources */,
 				EB84216A1F591DF60055099F /* Supports */,
+				EB3BDEBF20D39AB20067B2A3 /* Theme */,
 				EB8421691F591DF00055099F /* ViewControllers */,
 				EB8421671F591DDF0055099F /* ViewModels */,
 			);
@@ -184,7 +201,6 @@
 			isa = PBXGroup;
 			children = (
 				EB6006AA1FB5A681009F0D41 /* DefaultData.swift */,
-				EB51F7FB2051598300E505F9 /* CustomNotification.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -219,6 +235,7 @@
 				EBA6020B1F5ECB6B00859861 /* Functions.swift */,
 				EB317D7F1FD5722F00CD1799 /* Extensions.swift */,
 				EB6EC0971FB7093A001B70AF /* Constants.swift */,
+				EB51F7FB2051598300E505F9 /* CustomNotification.swift */,
 			);
 			path = Supports;
 			sourceTree = "<group>";
@@ -410,8 +427,10 @@
 				EB154F3320CD704500BF503B /* HomePageAPI.swift in Sources */,
 				EB56872F20CD495400F4E681 /* NetworkManager.swift in Sources */,
 				EB6EC0981FB7093A001B70AF /* Constants.swift in Sources */,
+				EB3BDEC520D53B930067B2A3 /* DefaultTheme.swift in Sources */,
 				EB3B042F1FBD2A6E0033F492 /* AboutMeViewController.swift in Sources */,
 				EB84215B1F591D5B0055099F /* SeedProject.xcdatamodeld in Sources */,
+				EB3BDEC320D3B1AB0067B2A3 /* ThemeElement.swift in Sources */,
 				EB6EC0961FB70568001B70AF /* SearchViewController.swift in Sources */,
 				EB5D57CA1F5B056F00C6DE5A /* HomePageTutorialViewController.swift in Sources */,
 				EB3D97871F5F8F7B007112C4 /* MainTabBarController.swift in Sources */,
@@ -427,6 +446,7 @@
 				EBA6020C1F5ECB6B00859861 /* Functions.swift in Sources */,
 				EB6EC0941FB70546001B70AF /* CommunityViewController.swift in Sources */,
 				EB5D57C31F5AFD8E00C6DE5A /* HomePageViewController.swift in Sources */,
+				EB3BDEC120D39ACC0067B2A3 /* ThemeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

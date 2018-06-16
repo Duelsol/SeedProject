@@ -8,19 +8,19 @@
 
 import XLPagerTabStrip
 
-class HomePageViewController: ButtonBarPagerTabStripViewController {
+class HomePageViewController: ButtonBarPagerTabStripViewController, ThemeUpdateProtocol {
 
     override func viewDidLoad() {
         // 设置XLPagerTabStrip
         settings.style.buttonBarBackgroundColor = UIColor.clear
         settings.style.buttonBarItemBackgroundColor = UIColor.clear
-        settings.style.buttonBarItemTitleColor = NAVIGATIONBAR_TEXT_COLOR
-        settings.style.selectedBarBackgroundColor = NAVIGATIONBAR_TEXT_COLOR
         settings.style.selectedBarHeight = 2
         settings.style.buttonBarMinimumLineSpacing = 0
         settings.style.buttonBarItemsShouldFillAvailiableWidth = true
         settings.style.buttonBarLeftContentInset = 0
         settings.style.buttonBarRightContentInset = 0
+
+        addThemeObserver()
 
         super.viewDidLoad()
 
@@ -33,11 +33,21 @@ class HomePageViewController: ButtonBarPagerTabStripViewController {
         containerView.frame = SAFE_AREA
     }
 
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         let homePageNews = R.storyboard.main.homePageNews()!
         let homePageTutorial = R.storyboard.main.homePageTutorial()!
         let homePageEvaluation = R.storyboard.main.homePageEvaluation()!
         return [homePageNews, homePageTutorial, homePageEvaluation]
+    }
+
+    override func updateTheme() {
+        super.updateTheme()
+        settings.style.buttonBarItemTitleColor = ThemeManager.shared.getColor(ofElement: .navigationBarText)
+        settings.style.selectedBarBackgroundColor = ThemeManager.shared.getColor(ofElement: .navigationBarText)
     }
 
 }

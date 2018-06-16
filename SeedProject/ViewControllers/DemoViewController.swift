@@ -8,20 +8,22 @@
 
 import UIKit
 
-class DemoViewController: UIViewController {
+class DemoViewController: UIViewController, ThemeUpdateProtocol {
+
+    let titleLabel = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // 自定义导航栏
-        let titleLabel = UILabel()
         titleLabel.text = title
-        titleLabel.textColor = NAVIGATIONBAR_TEXT_COLOR
         let navItem = UINavigationItem()
         navItem.titleView = titleLabel
         navItem.leftBarButtonItem = UIBarButtonItem(image: R.image.arrowLeft(), style: .plain, target: self, action: #selector(backTapped))
         let customNavBar = createCustomNavBar(with: navItem, replaceOf: navigationController)
         view.addSubview(customNavBar)
+
+        addThemeObserver()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -29,6 +31,16 @@ class DemoViewController: UIViewController {
 
         // 右滑返回
         navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    override func updateTheme() {
+        super.updateTheme()
+        view.backgroundColor = ThemeManager.shared.getColor(ofElement: .viewBackground)
+        titleLabel.textColor = ThemeManager.shared.getColor(ofElement: .navigationBarText)
     }
 
     @objc func backTapped() {

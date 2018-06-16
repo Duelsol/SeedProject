@@ -80,7 +80,7 @@ class AboutMeViewController: UIViewController, UIScrollViewDelegate {
     }
 
     private func adjustNavBarBackgroundImageAlpha(_ alpha: CGFloat) {
-        let color = UIColor(hexString: NAVIGATIONBAR_BACKGROUND_COLOR.hexValue(), withAlpha: alpha)
+        let color = UIColor(hexString: ThemeManager.shared.getColor(ofElement: .navigationBarBackground).hexValue(), withAlpha: alpha)
         customNavBar!.setBackgroundImage(UIImage.initWithColor(color!), for: .default)
     }
 
