@@ -29,8 +29,8 @@ class ThemeManager {
 
     private init() {}
 
-    /// 切换主题
-    func `switch`(to theme: ThemeEnum) {
+    /// 改变主题
+    func change(to theme: ThemeEnum) {
         current = theme
         UserDefaults.standard.setValue(theme.rawValue, forKey: "CurrentTheme")
         NotificationCenter.default.post(custom: .willChangeTheme, object: nil)
