@@ -8,7 +8,7 @@
 
 import XLPagerTabStrip
 
-class HomePageViewController: ButtonBarPagerTabStripViewController, ThemeUpdateProtocol {
+class HomePageViewController: ButtonBarPagerTabStripViewController, ThemeChangeProtocol {
 
     override func viewDidLoad() {
         // 设置XLPagerTabStrip
@@ -44,8 +44,8 @@ class HomePageViewController: ButtonBarPagerTabStripViewController, ThemeUpdateP
         return [homePageNews, homePageTutorial, homePageEvaluation]
     }
 
-    override func updateTheme() {
-        super.updateTheme()
+    override func handleThemeChange() {
+        super.handleThemeChange()
         settings.style.buttonBarItemTitleColor = ThemeManager.shared.getColor(ofElement: .navigationBarText)
         settings.style.selectedBarBackgroundColor = ThemeManager.shared.getColor(ofElement: .navigationBarText)
     }

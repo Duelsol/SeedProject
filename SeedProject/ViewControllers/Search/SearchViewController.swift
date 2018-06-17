@@ -9,7 +9,7 @@
 import UIKit
 import PYSearch
 
-class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PYSearchViewControllerDelegate, ThemeUpdateProtocol {
+class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PYSearchViewControllerDelegate, ThemeChangeProtocol {
 
     var searchViewController: PYSearchViewController?
     let searchResultTableView = UITableView()
@@ -61,8 +61,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         NotificationCenter.default.removeObserver(self)
     }
 
-    override func updateTheme() {
-        super.updateTheme()
+    override func handleThemeChange() {
+        super.handleThemeChange()
         searchViewController!.searchBar.tintColor = ThemeManager.shared.getColor(ofElement: .navigationBarBackground)
     }
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomNavigationBar: UINavigationBar, ThemeUpdateProtocol {
+class CustomNavigationBar: UINavigationBar, ThemeChangeProtocol {
 
     /// 解决iOS11布局错乱问题
     override func layoutSubviews() {
@@ -33,7 +33,8 @@ class CustomNavigationBar: UINavigationBar, ThemeUpdateProtocol {
         NotificationCenter.default.removeObserver(self)
     }
 
-    override func updateTheme() {
+    override func handleThemeChange() {
+        super.handleThemeChange()
         barTintColor = ThemeManager.shared.getColor(ofElement: .navigationBarBackground)
         tintColor = ThemeManager.shared.getColor(ofElement: .navigationBarText)
     }

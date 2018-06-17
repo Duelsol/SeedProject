@@ -10,7 +10,7 @@ import Foundation
 
 enum CustomNotification: String {
 
-    case willUpdateTheme
+    case willChangeTheme
 
     var stringValue: String {
         return rawValue + "CustomNotification"

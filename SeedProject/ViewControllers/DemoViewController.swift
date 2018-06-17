@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DemoViewController: UIViewController, ThemeUpdateProtocol {
+class DemoViewController: UIViewController, ThemeChangeProtocol {
 
     let titleLabel = UILabel()
 
@@ -37,8 +37,8 @@ class DemoViewController: UIViewController, ThemeUpdateProtocol {
         NotificationCenter.default.removeObserver(self)
     }
 
-    override func updateTheme() {
-        super.updateTheme()
+    override func handleThemeChange() {
+        super.handleThemeChange()
         view.backgroundColor = ThemeManager.shared.getColor(ofElement: .viewBackground)
         titleLabel.textColor = ThemeManager.shared.getColor(ofElement: .navigationBarText)
     }

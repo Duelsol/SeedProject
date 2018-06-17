@@ -20,7 +20,7 @@ fileprivate let ITEM_SIZE: CGSize = {
     return CGSize(width: width, height: height)
 }()
 
-class CommunityViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, ThemeUpdateProtocol {
+class CommunityViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, ThemeChangeProtocol {
 
     @IBOutlet weak var communityCollectionView: UICollectionView!
 
@@ -54,8 +54,8 @@ class CommunityViewController: UIViewController, UICollectionViewDelegate, UICol
         NotificationCenter.default.removeObserver(self)
     }
 
-    override func updateTheme() {
-        super.updateTheme()
+    override func handleThemeChange() {
+        super.handleThemeChange()
         titleLabel.textColor = ThemeManager.shared.getColor(ofElement: .navigationBarText)
     }
 

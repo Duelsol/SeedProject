@@ -33,7 +33,7 @@ class ThemeManager {
     func `switch`(to theme: ThemeEnum) {
         current = theme
         UserDefaults.standard.setValue(theme.rawValue, forKey: "CurrentTheme")
-        NotificationCenter.default.post(custom: .willUpdateTheme, object: nil)
+        NotificationCenter.default.post(custom: .willChangeTheme, object: nil)
     }
 
     /// 获取与颜色相关的元素
@@ -47,34 +47,34 @@ class ThemeManager {
 }
 
 /// 主题更新协议，主要针对UIView和UIViewController
-protocol ThemeUpdateProtocol {}
+protocol ThemeChangeProtocol {}
 
-extension ThemeUpdateProtocol where Self: UIView {
+extension ThemeChangeProtocol where Self: UIView {
 
     func addThemeObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(updateTheme), name: CustomNotification.willUpdateTheme.notificationName, object: nil)
-        updateTheme()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleThemeChange), name: CustomNotification.willChangeTheme.notificationName, object: nil)
+        handleThemeChange()
     }
 
 }
 
-extension ThemeUpdateProtocol where Self: UIViewController {
+extension ThemeChangeProtocol where Self: UIViewController {
 
     func addThemeObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(updateTheme), name: CustomNotification.willUpdateTheme.notificationName, object: nil)
-        updateTheme()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleThemeChange), name: CustomNotification.willChangeTheme.notificationName, object: nil)
+        handleThemeChange()
     }
 
 }
 
 extension UIView {
 
-    @objc func updateTheme() {}
+    @objc func handleThemeChange() {}
 
 }
 
 extension UIViewController {
 
-    @objc func updateTheme() {}
+    @objc func handleThemeChange() {}
 
 }
