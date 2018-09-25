@@ -68,7 +68,7 @@ class CommunityViewController: UIViewController, UICollectionViewDelegate, UICol
     }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if kind == UICollectionElementKindSectionHeader {
+        if kind == UICollectionView.elementKindSectionHeader {
             let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: R.reuseIdentifier.communitySectionHeader, for: indexPath)!
             sectionHeader.label.text = DefaultData.communities[indexPath.section].keys.first
             sectionHeader.label.snp.makeConstraints {
@@ -76,7 +76,7 @@ class CommunityViewController: UIViewController, UICollectionViewDelegate, UICol
                 make.center.equalToSuperview()
             }
             return sectionHeader
-        } else if kind == UICollectionElementKindSectionFooter {
+        } else if kind == UICollectionView.elementKindSectionFooter {
             let sectionFooter = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: R.reuseIdentifier.communitySectionFooter.identifier, for: indexPath)
             sectionFooter.backgroundColor = UIColor.flatWhite()
             return sectionFooter

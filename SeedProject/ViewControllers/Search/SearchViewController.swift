@@ -30,7 +30,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         view.addSubview(customNavBar)
 
         searchViewController!.view.frame = CGRect(x: 0, y: STATUSBAR_HEIGHT + NAVIGATIONBAR_HEIGHT, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - STATUSBAR_HEIGHT - NAVIGATIONBAR_HEIGHT)
-        addChildViewController(searchViewController!)
+        addChild(searchViewController!)
         view.addSubview(searchViewController!.view)
 
         // 设置查询列表

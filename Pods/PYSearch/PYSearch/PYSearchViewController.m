@@ -168,8 +168,11 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
-    [self.searchBar becomeFirstResponder];
+    if (NULL == self.searchResultController.parentViewController) {
+        [self.searchBar becomeFirstResponder];
+    } else if (YES == self.showKeyboardWhenReturnSearchResult) {
+        [self.searchBar becomeFirstResponder];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -391,7 +394,9 @@
     self.showHotSearch = YES;
     self.showSearchResultWhenSearchTextChanged = NO;
     self.showSearchResultWhenSearchBarRefocused = NO;
+    self.showKeyboardWhenReturnSearchResult = YES;
     self.removeSpaceOnSearchString = YES;
+    self.searchBarCornerRadius = 0.0;
     
     UIView *titleView = [[UIView alloc] init];
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:titleView.bounds];
@@ -693,6 +698,19 @@
 }
 
 #pragma mark - setter
+- (void)setSearchBarCornerRadius:(CGFloat)searchBarCornerRadius
+{
+    _searchBarCornerRadius = searchBarCornerRadius;
+    
+    for (UIView *subView in self.searchTextField.subviews) {
+        if ([NSStringFromClass([subView class]) isEqualToString:@"_UISearchBarSearchFieldBackgroundView"]) {
+            subView.layer.cornerRadius = searchBarCornerRadius;
+            subView.clipsToBounds = YES;
+            break;
+        }
+    }
+}
+
 - (void)setSwapHotSeachWithSearchHistory:(BOOL)swapHotSeachWithSearchHistory
 {
     _swapHotSeachWithSearchHistory = swapHotSeachWithSearchHistory;
