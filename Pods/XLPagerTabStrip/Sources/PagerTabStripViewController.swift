@@ -240,7 +240,7 @@ open class PagerTabStripViewController: UIViewController, UIScrollViewDelegate {
 
         for (index, childController) in pagerViewControllers.enumerated() {
             let pageOffsetForChild = self.pageOffsetForChild(at: index)
-            if fabs(containerView.contentOffset.x - pageOffsetForChild) < containerView.bounds.width {
+            if abs(containerView.contentOffset.x - pageOffsetForChild) < containerView.bounds.width {
                 if childController.parent != nil {
                     childController.view.frame = CGRect(x: offsetForChild(at: index), y: 0, width: view.bounds.width, height: containerView.bounds.height)
                     childController.view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
@@ -299,7 +299,7 @@ open class PagerTabStripViewController: UIViewController, UIScrollViewDelegate {
         updateContent()
     }
 
-    // MARK: - UIScrollDelegate
+    // MARK: - UIScrollViewDelegate
 
     open func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if containerView == scrollView {

@@ -13,7 +13,7 @@ import DeviceKit
 
 let SCREEN_WIDTH = UIScreen.main.bounds.width
 let SCREEN_HEIGHT = UIScreen.main.bounds.height
-let STATUSBAR_HEIGHT: CGFloat = Device().isOneOf([.iPhoneX, .simulator(.iPhoneX)]) ? 44 : 20
+let STATUSBAR_HEIGHT: CGFloat = Device().realDevice.isFaceIDCapable ? 44 : 20
 let NAVIGATIONBAR_HEIGHT: CGFloat = 44
 let NAVIGATIONBAR_TITLE_SIZE: CGFloat = 18
 let TABBAR_HEIGHT: CGFloat = Device().isOneOf([.iPhoneX, .simulator(.iPhoneX)]) ? 83 : 49
