@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-import MagicalRecord
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,8 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // 初始化MagicalRecord
-        MagicalRecord.setupAutoMigratingCoreDataStack()
         return true
     }
 

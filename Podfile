@@ -8,7 +8,6 @@ target 'SeedProject' do
     pod 'ChameleonFramework'
     pod 'DeviceKit'
     pod 'DZNEmptyDataSet'
-    pod 'MagicalRecord'
     pod 'MBProgressHUD'
     pod 'MJRefresh'
     pod 'PYSearch'
