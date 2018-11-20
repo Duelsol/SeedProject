@@ -26,7 +26,7 @@ struct NetworkManager {
     ///   - params: 参数
     ///   - success: 请求成功时的回调，传入的参数是response.data
     ///   - finally: 最终回调
-    func request(baseURL: String = BASE_URL, path: String, method: HTTPMethod = .get, params: [String: Any]? = nil, success: @escaping (Any) -> (), finally: (() -> ())? = nil) {
+    func request(baseURL: String = BASE_URL, path: String, method: HTTPMethod = .get, params: [String: Any]? = nil, success: @escaping (JSON) -> (), finally: (() -> ())? = nil) {
         Alamofire.request(baseURL + path, method: method, parameters: params)
             .validate()
             .responseJSON { response in

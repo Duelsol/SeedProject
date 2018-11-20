@@ -12,11 +12,7 @@ import SwiftyJSON
 extension NetworkManager {
 
     func fetchNews(success: @escaping (JSON) -> (), finally: @escaping () -> ()) {
-        request(path: "/table/list", success: { data in
-            success(data as! JSON)
-        }, finally: {
-            finally()
-        })
+        request(path: "/table/list", success: success, finally: finally)
     }
 
 }
