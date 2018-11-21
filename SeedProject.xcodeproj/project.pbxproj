@@ -23,7 +23,6 @@
 		EB5D57C31F5AFD8E00C6DE5A /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D57C21F5AFD8E00C6DE5A /* HomePageViewController.swift */; };
 		EB5D57C81F5B051500C6DE5A /* HomePageNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D57C71F5B051500C6DE5A /* HomePageNewsViewController.swift */; };
 		EB5D57CA1F5B056F00C6DE5A /* HomePageTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D57C91F5B056F00C6DE5A /* HomePageTutorialViewController.swift */; };
-		EB6006AB1FB5A681009F0D41 /* DefaultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6006AA1FB5A681009F0D41 /* DefaultData.swift */; };
 		EB6EC0921FB6F5AF001B70AF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EB6EC0911FB6F5AF001B70AF /* Localizable.strings */; };
 		EB6EC0941FB70546001B70AF /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6EC0931FB70546001B70AF /* CommunityViewController.swift */; };
 		EB6EC0961FB70568001B70AF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6EC0951FB70568001B70AF /* SearchViewController.swift */; };
@@ -35,6 +34,9 @@
 		EB8421601F591D5B0055099F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB84215E1F591D5B0055099F /* LaunchScreen.storyboard */; };
 		EB868D141FB7423400FD5A63 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB868D131FB7423400FD5A63 /* CustomNavigationBar.swift */; };
 		EBA6020C1F5ECB6B00859861 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA6020B1F5ECB6B00859861 /* Functions.swift */; };
+		EBEAF44221A5AA1D0031D35C /* CommunityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEAF44121A5AA1D0031D35C /* CommunityViewModel.swift */; };
+		EBEAF44521A5AB440031D35C /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEAF44421A5AB440031D35C /* SearchViewModel.swift */; };
+		EBEAF44A21A5ACE50031D35C /* HomePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEAF44921A5ACE50031D35C /* HomePageViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,7 +59,6 @@
 		EB5D57C21F5AFD8E00C6DE5A /* HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		EB5D57C71F5B051500C6DE5A /* HomePageNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageNewsViewController.swift; sourceTree = "<group>"; };
 		EB5D57C91F5B056F00C6DE5A /* HomePageTutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageTutorialViewController.swift; sourceTree = "<group>"; };
-		EB6006AA1FB5A681009F0D41 /* DefaultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultData.swift; sourceTree = "<group>"; };
 		EB6EC0911FB6F5AF001B70AF /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		EB6EC0931FB70546001B70AF /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		EB6EC0951FB70568001B70AF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +72,9 @@
 		EB8421611F591D5B0055099F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB868D131FB7423400FD5A63 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		EBA6020B1F5ECB6B00859861 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		EBEAF44121A5AA1D0031D35C /* CommunityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewModel.swift; sourceTree = "<group>"; };
+		EBEAF44421A5AB440031D35C /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		EBEAF44921A5ACE50031D35C /* HomePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,7 +204,9 @@
 		EB8421671F591DDF0055099F /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				EB6006AA1FB5A681009F0D41 /* DefaultData.swift */,
+				EBEAF44621A5AC8C0031D35C /* HomePage */,
+				EBEAF44321A5AB330031D35C /* Search */,
+				EBEAF44021A5A9FD0031D35C /* Community */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -266,6 +272,30 @@
 				EB8421521F591D5B0055099F /* AppDelegate.swift */,
 			);
 			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		EBEAF44021A5A9FD0031D35C /* Community */ = {
+			isa = PBXGroup;
+			children = (
+				EBEAF44121A5AA1D0031D35C /* CommunityViewModel.swift */,
+			);
+			path = Community;
+			sourceTree = "<group>";
+		};
+		EBEAF44321A5AB330031D35C /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				EBEAF44421A5AB440031D35C /* SearchViewModel.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		EBEAF44621A5AC8C0031D35C /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				EBEAF44921A5ACE50031D35C /* HomePageViewModel.swift */,
+			);
+			path = HomePage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -434,15 +464,17 @@
 				EB3D97871F5F8F7B007112C4 /* MainTabBarController.swift in Sources */,
 				EB868D141FB7423400FD5A63 /* CustomNavigationBar.swift in Sources */,
 				EB3B04311FBDC9100033F492 /* DemoViewController.swift in Sources */,
+				EBEAF44221A5AA1D0031D35C /* CommunityViewModel.swift in Sources */,
 				EB2CE9682031852E00F7ECB9 /* R.generated.swift in Sources */,
 				EB51F7FC2051598300E505F9 /* CustomNotification.swift in Sources */,
 				EB1326301F5EA9E100ABE06B /* HomePageEvaluationViewController.swift in Sources */,
 				EB317D801FD5722F00CD1799 /* Extensions.swift in Sources */,
 				EB8421531F591D5B0055099F /* AppDelegate.swift in Sources */,
 				EB5D57C81F5B051500C6DE5A /* HomePageNewsViewController.swift in Sources */,
-				EB6006AB1FB5A681009F0D41 /* DefaultData.swift in Sources */,
 				EBA6020C1F5ECB6B00859861 /* Functions.swift in Sources */,
+				EBEAF44521A5AB440031D35C /* SearchViewModel.swift in Sources */,
 				EB6EC0941FB70546001B70AF /* CommunityViewController.swift in Sources */,
+				EBEAF44A21A5ACE50031D35C /* HomePageViewModel.swift in Sources */,
 				EB5D57C31F5AFD8E00C6DE5A /* HomePageViewController.swift in Sources */,
 				EB3BDEC120D39ACC0067B2A3 /* ThemeManager.swift in Sources */,
 			);

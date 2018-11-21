@@ -25,6 +25,7 @@ class CommunityViewController: UIViewController {
     @IBOutlet weak var communityCollectionView: UICollectionView!
 
     let titleLabel = UILabel()
+    let communityViewModel = CommunityViewModel.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,17 +69,17 @@ extension CommunityViewController: ThemeChangeProtocol {
 extension CommunityViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return DefaultData.communities.count
+        return communityViewModel.data.count
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return DefaultData.communities[section].first!.value.count
+        return communityViewModel.data[section].first!.value.count
     }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {
             let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: R.reuseIdentifier.communitySectionHeader, for: indexPath)!
-            sectionHeader.label.text = DefaultData.communities[indexPath.section].keys.first
+            sectionHeader.label.text = communityViewModel.data[indexPath.section].keys.first
             sectionHeader.label.snp.makeConstraints {
                 make in
                 make.center.equalToSuperview()
@@ -101,7 +102,7 @@ extension CommunityViewController: UICollectionViewDelegate, UICollectionViewDat
             make.width.equalTo(ITEM_SIZE.width)
             make.height.equalTo(ITEM_SIZE.height - TEXT_HEIGHT)
         }
-        cell.label.text = DefaultData.communities[indexPath.section].first!.value[indexPath.row]
+        cell.label.text = communityViewModel.data[indexPath.section].first!.value[indexPath.row]
         cell.label.snp.makeConstraints {
             make in
             make.leading.equalTo(cell.imageView)

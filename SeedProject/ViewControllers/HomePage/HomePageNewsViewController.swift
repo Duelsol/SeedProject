@@ -9,11 +9,12 @@
 import XLPagerTabStrip
 import SnapKit
 import MJRefresh
-import SwiftyJSON
 
 class HomePageNewsViewController: UIViewController {
 
     @IBOutlet weak var newsTableView: UITableView!
+
+    var homePageViewModel = HomePageViewModel.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,23 +36,17 @@ class HomePageNewsViewController: UIViewController {
     }
 
     @objc func loadNewData() {
-        NetworkManager.shared.fetchNews(success: { data in
-            for (_, subJson): (String, JSON) in data["items"] {
-                DefaultData.news.insert(subJson["title"].stringValue, at: 0)
-            }
-        }, finally: {
+        homePageViewModel.fetchNews {
             self.newsTableView.reloadData()
             self.newsTableView.mj_header.endRefreshing()
-        })
+        }
     }
 
     @objc func loadMoreData() {
-        let count = DefaultData.news.count
-        for i in count + 1 ... count + DefaultData.newsNextGrowingCount {
-            DefaultData.news.append("新闻\(i)")
+        homePageViewModel.moreNews {
+            self.newsTableView.reloadData()
+            self.newsTableView.mj_footer.endRefreshing()
         }
-        newsTableView.reloadData()
-        newsTableView.mj_footer.endRefreshing()
     }
 
 }
@@ -71,12 +66,12 @@ extension HomePageNewsViewController: UITableViewDelegate, UITableViewDataSource
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DefaultData.news.count
+        return homePageViewModel.news.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.homePageNewsCell, for: indexPath)!
-        cell.textLabel?.text = DefaultData.news[indexPath.row]
+        cell.textLabel?.text = homePageViewModel.news[indexPath.row]
         return cell
     }
 

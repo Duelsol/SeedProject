@@ -14,12 +14,13 @@ class SearchViewController: UIViewController {
     var searchViewController: PYSearchViewController?
     let searchResultTableView = UITableView()
     var searchResultData = [String]()
+    let searchViewModel = SearchViewModel.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
         definesPresentationContext = true
 
-        searchViewController = PYSearchViewController(hotSearches: DefaultData.hotSearches, searchBarPlaceholder: R.string.localizable.searchSearchBarPlaceholder(), didSearch: {
+        searchViewController = PYSearchViewController(hotSearches: searchViewModel.hotSearches, searchBarPlaceholder: R.string.localizable.searchSearchBarPlaceholder(), didSearch: {
             searchViewController, searchBar, searchText in
             self.segueToDemo(title: searchText)
         })
@@ -78,7 +79,7 @@ extension SearchViewController: PYSearchViewControllerDelegate {
         searchResultData.removeAll()
         let searchString = searchViewController.searchBar.text!
         searchResultTableView.isHidden = searchString.isEmpty
-        for searchHistory in DefaultData.hotSearches {
+        for searchHistory in searchViewModel.hotSearches {
             if searchHistory.lowercased().contains(searchString.lowercased())
                 || searchHistory.pinYin().lowercased().contains(searchString.lowercased()) {
                 searchResultData.append(searchHistory)
