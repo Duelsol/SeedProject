@@ -1,5 +1,5 @@
 //
-//  NewsViewModel.swift
+//  HomePageViewModel.swift
 //  SeedProject
 //
 //  Created by 冯奕骅 on 2018/11/21.
