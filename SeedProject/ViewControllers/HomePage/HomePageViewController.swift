@@ -8,7 +8,7 @@
 
 import XLPagerTabStrip
 
-class HomePageViewController: ButtonBarPagerTabStripViewController, ThemeChangeProtocol {
+class HomePageViewController: ButtonBarPagerTabStripViewController {
 
     override func viewDidLoad() {
         // 设置XLPagerTabStrip
@@ -43,6 +43,10 @@ class HomePageViewController: ButtonBarPagerTabStripViewController, ThemeChangeP
         let homePageEvaluation = R.storyboard.main.homePageEvaluation()!
         return [homePageNews, homePageTutorial, homePageEvaluation]
     }
+
+}
+
+extension HomePageViewController: ThemeChangeProtocol {
 
     override func handleThemeChange() {
         super.handleThemeChange()

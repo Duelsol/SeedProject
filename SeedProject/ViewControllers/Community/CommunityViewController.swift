@@ -20,7 +20,7 @@ fileprivate let ITEM_SIZE: CGSize = {
     return CGSize(width: width, height: height)
 }()
 
-class CommunityViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, ThemeChangeProtocol {
+class CommunityViewController: UIViewController {
 
     @IBOutlet weak var communityCollectionView: UICollectionView!
 
@@ -54,10 +54,18 @@ class CommunityViewController: UIViewController, UICollectionViewDelegate, UICol
         NotificationCenter.default.removeObserver(self)
     }
 
+}
+
+extension CommunityViewController: ThemeChangeProtocol {
+
     override func handleThemeChange() {
         super.handleThemeChange()
         titleLabel.textColor = ThemeManager.shared.getColor(ofElement: .navigationBarText)
     }
+
+}
+
+extension CommunityViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return DefaultData.communities.count

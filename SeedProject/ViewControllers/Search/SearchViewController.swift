@@ -9,7 +9,7 @@
 import UIKit
 import PYSearch
 
-class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PYSearchViewControllerDelegate, ThemeChangeProtocol {
+class SearchViewController: UIViewController {
 
     var searchViewController: PYSearchViewController?
     let searchResultTableView = UITableView()
@@ -61,10 +61,18 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         NotificationCenter.default.removeObserver(self)
     }
 
+}
+
+extension SearchViewController: ThemeChangeProtocol {
+
     override func handleThemeChange() {
         super.handleThemeChange()
         searchViewController!.searchBar.tintColor = ThemeManager.shared.getColor(ofElement: .navigationBarBackground)
     }
+
+}
+
+extension SearchViewController: PYSearchViewControllerDelegate {
 
     func searchViewController(_ searchViewController: PYSearchViewController!, searchTextDidChange searchBar: UISearchBar!, searchText: String!) {
         searchResultData.removeAll()
@@ -78,6 +86,10 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         searchResultTableView.reloadData()
     }
+
+}
+
+extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -116,6 +128,10 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             segueToDemo(title: text)
         }
     }
+
+}
+
+extension SearchViewController {
 
     private func segueToDemo(title: String?) {
         let destination = DemoViewController()

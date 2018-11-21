@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainTabBarController: UITabBarController, ThemeChangeProtocol {
+class MainTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,14 +31,18 @@ class MainTabBarController: UITabBarController, ThemeChangeProtocol {
         addThemeObserver()
     }
 
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+}
+
+extension MainTabBarController: ThemeChangeProtocol {
+
     override func handleThemeChange() {
         super.handleThemeChange()
         tabBar.tintColor = ThemeManager.shared.getColor(ofElement: .tabBarItem)
         tabBar.barTintColor = ThemeManager.shared.getColor(ofElement: .tabBarText)
-    }
-
-    deinit {
-        NotificationCenter.default.removeObserver(self)
     }
 
 }

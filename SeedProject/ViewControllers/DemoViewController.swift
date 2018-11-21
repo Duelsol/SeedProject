@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DemoViewController: UIViewController, ThemeChangeProtocol {
+class DemoViewController: UIViewController {
 
     let titleLabel = UILabel()
 
@@ -37,14 +37,18 @@ class DemoViewController: UIViewController, ThemeChangeProtocol {
         NotificationCenter.default.removeObserver(self)
     }
 
+    @objc func backTapped() {
+        navigationController?.popViewController(animated: true)
+    }
+
+}
+
+extension DemoViewController: ThemeChangeProtocol {
+
     override func handleThemeChange() {
         super.handleThemeChange()
         view.backgroundColor = ThemeManager.shared.getColor(ofElement: .viewBackground)
         titleLabel.textColor = ThemeManager.shared.getColor(ofElement: .navigationBarText)
-    }
-
-    @objc func backTapped() {
-        navigationController?.popViewController(animated: true)
     }
 
 }

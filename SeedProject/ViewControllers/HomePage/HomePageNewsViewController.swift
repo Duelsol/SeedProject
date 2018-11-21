@@ -11,7 +11,7 @@ import SnapKit
 import MJRefresh
 import SwiftyJSON
 
-class HomePageNewsViewController: UIViewController, IndicatorInfoProvider, UITableViewDelegate, UITableViewDataSource {
+class HomePageNewsViewController: UIViewController {
 
     @IBOutlet weak var newsTableView: UITableView!
 
@@ -34,24 +34,6 @@ class HomePageNewsViewController: UIViewController, IndicatorInfoProvider, UITab
         newsTableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreData))
     }
 
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: R.string.localizable.homePageNewsTitle())
-    }
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DefaultData.news.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.homePageNewsCell, for: indexPath)!
-        cell.textLabel?.text = DefaultData.news[indexPath.row]
-        return cell
-    }
-
     @objc func loadNewData() {
         NetworkManager.shared.fetchNews(success: { data in
             for (_, subJson): (String, JSON) in data["items"] {
@@ -70,6 +52,32 @@ class HomePageNewsViewController: UIViewController, IndicatorInfoProvider, UITab
         }
         newsTableView.reloadData()
         newsTableView.mj_footer.endRefreshing()
+    }
+
+}
+
+extension HomePageNewsViewController: IndicatorInfoProvider {
+
+    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+        return IndicatorInfo(title: R.string.localizable.homePageNewsTitle())
+    }
+
+}
+
+extension HomePageNewsViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return DefaultData.news.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.homePageNewsCell, for: indexPath)!
+        cell.textLabel?.text = DefaultData.news[indexPath.row]
+        return cell
     }
 
 }

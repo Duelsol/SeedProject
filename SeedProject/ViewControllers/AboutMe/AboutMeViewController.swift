@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AboutMeViewController: UIViewController, UIScrollViewDelegate {
+class AboutMeViewController: UIViewController {
 
     let scrollView = UIScrollView()
     let aboutMeCover = UIImageView(image: R.image.aboutmeCover())
@@ -56,6 +56,10 @@ class AboutMeViewController: UIViewController, UIScrollViewDelegate {
         scrollView.contentOffset = CGPoint(x: 0, y: -coverHeight)
     }
 
+}
+
+extension AboutMeViewController: UIScrollViewDelegate {
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
         if offsetY >= -(STATUSBAR_HEIGHT + NAVIGATIONBAR_HEIGHT) {
@@ -78,6 +82,10 @@ class AboutMeViewController: UIViewController, UIScrollViewDelegate {
             adjustNavBarBackgroundImageAlpha(alpha)
         }
     }
+
+}
+
+extension AboutMeViewController {
 
     private func adjustNavBarBackgroundImageAlpha(_ alpha: CGFloat) {
         let color = UIColor(hexString: ThemeManager.shared.getColor(ofElement: .navigationBarBackground).hexValue(), withAlpha: alpha)
