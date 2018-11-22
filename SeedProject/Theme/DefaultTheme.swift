@@ -19,5 +19,5 @@ class DefaultTheme: ThemeProtocol {
             "navigationBarText": UIColor.white
         ]
     }()
-    
+
 }
