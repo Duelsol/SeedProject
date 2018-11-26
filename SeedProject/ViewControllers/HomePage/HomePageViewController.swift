@@ -30,7 +30,7 @@ class HomePageViewController: ButtonBarPagerTabStripViewController {
         let customNavBar = createCustomNavBar(with: homePageNavItem, replaceOf: navigationController)
         view.addSubview(customNavBar)
 
-        containerView.frame = SAFE_AREA
+        containerView.frame = SafeArea().withNavigationBar().withTabBar().value()
     }
 
     deinit {

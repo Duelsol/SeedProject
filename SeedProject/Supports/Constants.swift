@@ -9,15 +9,39 @@
 import Foundation
 import DeviceKit
 
-/// Size
+/// Device
+
+let isFaceIDCapable = {
+    return Device().realDevice.isFaceIDCapable
+}()
 
 let SCREEN_WIDTH = UIScreen.main.bounds.width
 let SCREEN_HEIGHT = UIScreen.main.bounds.height
-let STATUSBAR_HEIGHT: CGFloat = Device().realDevice.isFaceIDCapable ? 44 : 20
+let STATUSBAR_HEIGHT: CGFloat = isFaceIDCapable ? 44 : 20
 let NAVIGATIONBAR_HEIGHT: CGFloat = 44
 let NAVIGATIONBAR_TITLE_SIZE: CGFloat = 18
-let TABBAR_HEIGHT: CGFloat = Device().isOneOf([.iPhoneX, .simulator(.iPhoneX)]) ? 83 : 49
-let SAFE_AREA = CGRect(x: 0, y: STATUSBAR_HEIGHT + NAVIGATIONBAR_HEIGHT, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - STATUSBAR_HEIGHT - NAVIGATIONBAR_HEIGHT - TABBAR_HEIGHT)
+let TABBAR_HEIGHT: CGFloat = isFaceIDCapable ? 83 : 49
+
+class SafeArea {
+
+    private var navigationBarHeight: CGFloat = 0
+    private var tabBarHeight: CGFloat = isFaceIDCapable ? 34 : 0
+
+    func withNavigationBar() -> SafeArea {
+        navigationBarHeight = NAVIGATIONBAR_HEIGHT
+        return self
+    }
+
+    func withTabBar() -> SafeArea {
+        tabBarHeight = TABBAR_HEIGHT
+        return self
+    }
+
+    func value() -> CGRect {
+        return CGRect(x: 0, y: STATUSBAR_HEIGHT + navigationBarHeight, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - STATUSBAR_HEIGHT - navigationBarHeight - tabBarHeight)
+    }
+
+}
 
 /// Network
 

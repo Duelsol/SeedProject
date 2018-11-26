@@ -30,7 +30,7 @@ class SearchViewController: UIViewController {
         let customNavBar = createCustomNavBar(with: UINavigationItem(), replaceOf: navigationController)
         view.addSubview(customNavBar)
 
-        searchViewController!.view.frame = CGRect(x: 0, y: STATUSBAR_HEIGHT + NAVIGATIONBAR_HEIGHT, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - STATUSBAR_HEIGHT - NAVIGATIONBAR_HEIGHT)
+        searchViewController!.view.frame = SafeArea().withNavigationBar().withTabBar().value()
         addChild(searchViewController!)
         view.addSubview(searchViewController!.view)
 

@@ -84,16 +84,3 @@ func random(in range: Range<Int>) -> Int {
     let count = UInt32(range.upperBound - range.lowerBound)
     return Int(arc4random_uniform(count)) + range.lowerBound
 }
-
-/// 创建项目导航栏
-func createCustomNavBar(with item: UINavigationItem? = nil, replaceOf default: UINavigationController? = nil) -> UINavigationBar {
-    `default`?.setNavigationBarHidden(true, animated: false)
-    `default`?.hidesNavigationBarHairline = true
-    let customNavBar = CustomNavigationBar(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: NAVIGATIONBAR_HEIGHT + STATUSBAR_HEIGHT))
-    customNavBar.isTranslucent = false
-    customNavBar.shadowImage = UIImage()
-    if item != nil {
-        customNavBar.setItems([item!], animated: false)
-    }
-    return customNavBar
-}
