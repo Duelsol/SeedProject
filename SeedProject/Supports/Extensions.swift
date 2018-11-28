@@ -68,18 +68,43 @@ extension Float: Formattable, Fixable {
 
 extension String {
 
+    var isBlank: Bool {
+        get {
+            return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty
+        }
+    }
+
+    func matches(pattern: String) -> Bool {
+        let predicate = NSPredicate(format: "SELF MATCHES %@", pattern)
+        return predicate.evaluate(with: self)
+    }
+
+    var isEmail: Bool {
+        get {
+            return self.matches(pattern: "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$")
+        }
+    }
+
+    var isMobileNumber: Bool {
+        get {
+            return self.matches(pattern: "^\\d{11}$")
+        }
+    }
+
     /// 将文字转为拼音
-    func pinYin() -> String {
-        let string = NSMutableString(string: self)
-        // 先转成带音标的拼音
-        CFStringTransform(string, nil, kCFStringTransformToLatin, false)
-        // 再转成去掉音标的拼音
-        CFStringTransform(string, nil, kCFStringTransformStripDiacritics, false)
-        return string.replacingOccurrences(of: " ", with: "")
+    var pinYin: String {
+        get {
+            let string = NSMutableString(string: self)
+            // 先转成带音标的拼音
+            CFStringTransform(string, nil, kCFStringTransformToLatin, false)
+            // 再转成去掉音标的拼音
+            CFStringTransform(string, nil, kCFStringTransformStripDiacritics, false)
+            return string.replacingOccurrences(of: " ", with: "")
+        }
     }
 
     /// 从字符串解析日期
-    func date(_ pattern: String = "yyyy-MM-dd") -> Date? {
+    func date(pattern: String = "yyyy-MM-dd") -> Date? {
         let dateFormatter = FormatterHolder.date
         dateFormatter.dateFormat = pattern
         return dateFormatter.date(from: self)
@@ -90,7 +115,7 @@ extension String {
 extension Date {
 
     /// 格式化日期
-    func string(_ pattern: String = "yyyy-MM-dd") -> String {
+    func string(pattern: String = "yyyy-MM-dd") -> String {
         let dateFormatter = FormatterHolder.date
         dateFormatter.dateFormat = pattern
         return dateFormatter.string(from: self)

@@ -81,7 +81,7 @@ extension SearchViewController: PYSearchViewControllerDelegate {
         searchResultTableView.isHidden = searchString.isEmpty
         for searchHistory in searchViewModel.hotSearches {
             if searchHistory.lowercased().contains(searchString.lowercased())
-                || searchHistory.pinYin().lowercased().contains(searchString.lowercased()) {
+                || searchHistory.pinYin.lowercased().contains(searchString.lowercased()) {
                 searchResultData.append(searchHistory)
             }
         }
