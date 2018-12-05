@@ -43,11 +43,10 @@ class AboutMeViewController: UIViewController {
         let shareBarButtonItem = UIBarButtonItem(image: R.image.share(), style: .plain, target: nil, action: nil)
         let homePageNavItem = UINavigationItem()
         homePageNavItem.rightBarButtonItem = shareBarButtonItem
-        customNavBar = createCustomNavBar(with: homePageNavItem, replaceOf: navigationController)
+        customNavBar = createCustomNavigationBar(with: homePageNavItem)
         customNavBar!.isTranslucent = true
         // 背景透明
         adjustNavBarBackgroundImageAlpha(0)
-        view.addSubview(customNavBar!)
     }
 
     override func viewDidAppear(_ animated: Bool) {

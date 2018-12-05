@@ -162,11 +162,3 @@ extension UIImageView {
     }
 
 }
-
-extension NotificationCenter {
-
-    func post(custom: CustomNotification, object: Any?) {
-        self.post(name: custom.notificationName, object: object)
-    }
-
-}

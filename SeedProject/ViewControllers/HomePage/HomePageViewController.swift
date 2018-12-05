@@ -27,8 +27,7 @@ class HomePageViewController: ButtonBarPagerTabStripViewController {
         // 自定义导航栏
         let homePageNavItem = UINavigationItem()
         homePageNavItem.titleView = buttonBarView
-        let customNavBar = createCustomNavBar(with: homePageNavItem, replaceOf: navigationController)
-        view.addSubview(customNavBar)
+        _ = createCustomNavigationBar(with: homePageNavItem)
 
         containerView.frame = SafeArea().withNavigationBar().withTabBar().value()
     }

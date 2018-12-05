@@ -224,12 +224,12 @@
 		EB8421691F591DF00055099F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				EB3D97861F5F8F7B007112C4 /* MainTabBarController.swift */,
-				EB3B04301FBDC9100033F492 /* DemoViewController.swift */,
+				EBE7552D21B7F9E500FF9321 /* Framework */,
 				EB5D57C61F5B035A00C6DE5A /* HomePage */,
 				EB6EC08F1FB6F513001B70AF /* Community */,
 				EB6EC08D1FB6F513001B70AF /* Search */,
 				EB3B042D1FBD2A3A0033F492 /* AboutMe */,
+				EBE7552C21B7F9D600FF9321 /* Demo */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -242,9 +242,7 @@
 				EBA6020B1F5ECB6B00859861 /* Functions.swift */,
 				EB317D7F1FD5722F00CD1799 /* Extensions.swift */,
 				EB6EC0971FB7093A001B70AF /* Constants.swift */,
-				EB868D131FB7423400FD5A63 /* CustomNavigationBar.swift */,
 				EB51F7FB2051598300E505F9 /* CustomNotification.swift */,
-				EB25566D21AB916200C7EF14 /* LoadingView.swift */,
 			);
 			path = Supports;
 			sourceTree = "<group>";
@@ -275,6 +273,24 @@
 				EB8421521F591D5B0055099F /* AppDelegate.swift */,
 			);
 			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		EBE7552C21B7F9D600FF9321 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				EB3B04301FBDC9100033F492 /* DemoViewController.swift */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		EBE7552D21B7F9E500FF9321 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				EB3D97861F5F8F7B007112C4 /* MainTabBarController.swift */,
+				EB868D131FB7423400FD5A63 /* CustomNavigationBar.swift */,
+				EB25566D21AB916200C7EF14 /* LoadingView.swift */,
+			);
+			path = Framework;
 			sourceTree = "<group>";
 		};
 		EBEAF44021A5A9FD0031D35C /* Community */ = {

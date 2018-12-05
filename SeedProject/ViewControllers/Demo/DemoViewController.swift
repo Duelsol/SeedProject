@@ -20,8 +20,7 @@ class DemoViewController: UIViewController {
         let navItem = UINavigationItem()
         navItem.titleView = titleLabel
         navItem.leftBarButtonItem = UIBarButtonItem(image: R.image.arrowLeft(), style: .plain, target: self, action: #selector(backTapped))
-        let customNavBar = createCustomNavBar(with: navItem, replaceOf: navigationController)
-        view.addSubview(customNavBar)
+        _ = createCustomNavigationBar(with: navItem)
 
         addThemeObserver()
     }

@@ -35,8 +35,7 @@ class CommunityViewController: UIViewController {
         titleLabel.font = UIFont.systemFont(ofSize: NAVIGATIONBAR_TITLE_SIZE)
         let communityNavItem = UINavigationItem()
         communityNavItem.titleView = titleLabel
-        let customNavBar = createCustomNavBar(with: communityNavItem, replaceOf: navigationController)
-        view.addSubview(customNavBar)
+        _ = createCustomNavigationBar(with: communityNavItem)
 
         communityCollectionView.delegate = self
         communityCollectionView.dataSource = self

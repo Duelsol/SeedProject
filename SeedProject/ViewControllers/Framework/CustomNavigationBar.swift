@@ -45,15 +45,20 @@ extension CustomNavigationBar: ThemeChangeProtocol {
 
 }
 
-/// 创建项目导航栏
-func createCustomNavBar(with item: UINavigationItem? = nil, replaceOf default: UINavigationController? = nil) -> UINavigationBar {
-    `default`?.setNavigationBarHidden(true, animated: false)
-    `default`?.hidesNavigationBarHairline = true
-    let customNavBar = CustomNavigationBar(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: NAVIGATIONBAR_HEIGHT + STATUSBAR_HEIGHT))
-    customNavBar.isTranslucent = false
-    customNavBar.shadowImage = UIImage()
-    if item != nil {
-        customNavBar.setItems([item!], animated: false)
+extension UIViewController {
+
+    /// 创建自定义导航栏
+    func createCustomNavigationBar(with item: UINavigationItem? = nil) -> UINavigationBar {
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.hidesNavigationBarHairline = true
+        let customNavBar = CustomNavigationBar(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: NAVIGATIONBAR_HEIGHT + STATUSBAR_HEIGHT))
+        customNavBar.isTranslucent = false
+        customNavBar.shadowImage = UIImage()
+        if item != nil {
+            customNavBar.setItems([item!], animated: false)
+        }
+        view.addSubview(customNavBar)
+        return customNavBar
     }
-    return customNavBar
+
 }

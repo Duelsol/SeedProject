@@ -27,8 +27,7 @@ class SearchViewController: UIViewController {
         searchViewController!.delegate = self
 
         // 自定义导航栏
-        let customNavBar = createCustomNavBar(with: UINavigationItem(), replaceOf: navigationController)
-        view.addSubview(customNavBar)
+        _ = createCustomNavigationBar(with: UINavigationItem())
 
         searchViewController!.view.frame = SafeArea().withNavigationBar().withTabBar().value()
         addChild(searchViewController!)
