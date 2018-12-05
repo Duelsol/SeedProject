@@ -33,7 +33,7 @@ class ThemeManager {
     func change(to theme: ThemeEnum) {
         current = theme
         UserDefaults.standard.setValue(theme.rawValue, forKey: "CurrentTheme")
-        NotificationCenter.default.post(custom: .willChangeTheme, object: nil)
+        NotificationCenter.default.post(custom: .themeWillChange, object: nil)
     }
 
     /// 获取与颜色相关的元素
@@ -52,7 +52,7 @@ protocol ThemeChangeProtocol {}
 extension ThemeChangeProtocol where Self: UIView {
 
     func addThemeObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(handleThemeChange), name: CustomNotification.willChangeTheme.notificationName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleThemeChange), name: CustomNotification.themeWillChange.notificationName, object: nil)
         handleThemeChange()
     }
 
@@ -61,7 +61,7 @@ extension ThemeChangeProtocol where Self: UIView {
 extension ThemeChangeProtocol where Self: UIViewController {
 
     func addThemeObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(handleThemeChange), name: CustomNotification.willChangeTheme.notificationName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleThemeChange), name: CustomNotification.themeWillChange.notificationName, object: nil)
         handleThemeChange()
     }
 
