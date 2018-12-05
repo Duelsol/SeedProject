@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-extension NetworkManager {
+extension HTTPManager {
 
     func fetchNews(success: @escaping (JSON) -> (), finally: @escaping () -> ()) {
         request(path: "/table/list", success: success, finally: finally)

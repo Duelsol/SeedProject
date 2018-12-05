@@ -20,7 +20,7 @@
 		EB3BDEC520D53B930067B2A3 /* DefaultTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3BDEC420D53B930067B2A3 /* DefaultTheme.swift */; };
 		EB3D97871F5F8F7B007112C4 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3D97861F5F8F7B007112C4 /* MainTabBarController.swift */; };
 		EB51F7FC2051598300E505F9 /* CustomNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51F7FB2051598300E505F9 /* CustomNotification.swift */; };
-		EB56872F20CD495400F4E681 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56872E20CD495400F4E681 /* NetworkManager.swift */; };
+		EB56872F20CD495400F4E681 /* HTTPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56872E20CD495400F4E681 /* HTTPManager.swift */; };
 		EB5D57C31F5AFD8E00C6DE5A /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D57C21F5AFD8E00C6DE5A /* HomePageViewController.swift */; };
 		EB5D57C81F5B051500C6DE5A /* HomePageNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D57C71F5B051500C6DE5A /* HomePageNewsViewController.swift */; };
 		EB5D57CA1F5B056F00C6DE5A /* HomePageTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D57C91F5B056F00C6DE5A /* HomePageTutorialViewController.swift */; };
@@ -56,7 +56,7 @@
 		EB3BDEC420D53B930067B2A3 /* DefaultTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTheme.swift; sourceTree = "<group>"; };
 		EB3D97861F5F8F7B007112C4 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		EB51F7FB2051598300E505F9 /* CustomNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNotification.swift; sourceTree = "<group>"; };
-		EB56872E20CD495400F4E681 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		EB56872E20CD495400F4E681 /* HTTPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPManager.swift; sourceTree = "<group>"; };
 		EB5D57BF1F5AE0B200C6DE5A /* SeedProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SeedProject-Bridging-Header.h"; sourceTree = "<group>"; };
 		EB5D57C21F5AFD8E00C6DE5A /* HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		EB5D57C71F5B051500C6DE5A /* HomePageNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageNewsViewController.swift; sourceTree = "<group>"; };
@@ -126,13 +126,13 @@
 			path = Theme;
 			sourceTree = "<group>";
 		};
-		EB56872D20CD391C00F4E681 /* Network */ = {
+		EB56872D20CD391C00F4E681 /* HTTP */ = {
 			isa = PBXGroup;
 			children = (
-				EB56872E20CD495400F4E681 /* NetworkManager.swift */,
+				EB56872E20CD495400F4E681 /* HTTPManager.swift */,
 				EB56873020CD49DA00F4E681 /* HomePage */,
 			);
-			path = Network;
+			path = HTTP;
 			sourceTree = "<group>";
 		};
 		EB56873020CD49DA00F4E681 /* HomePage */ = {
@@ -193,7 +193,7 @@
 			children = (
 				EBCA930E20CD21C0005EBF3D /* AppDelegate */,
 				EB8421681F591DE60055099F /* Models */,
-				EB56872D20CD391C00F4E681 /* Network */,
+				EB56872D20CD391C00F4E681 /* HTTP */,
 				EB84216B1F591DFD0055099F /* Resources */,
 				EB84216A1F591DF60055099F /* Supports */,
 				EB3BDEBF20D39AB20067B2A3 /* Theme */,
@@ -472,7 +472,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB154F3320CD704500BF503B /* HomePageAPI.swift in Sources */,
-				EB56872F20CD495400F4E681 /* NetworkManager.swift in Sources */,
+				EB56872F20CD495400F4E681 /* HTTPManager.swift in Sources */,
 				EB6EC0981FB7093A001B70AF /* Constants.swift in Sources */,
 				EB3BDEC520D53B930067B2A3 /* DefaultTheme.swift in Sources */,
 				EB3B042F1FBD2A6E0033F492 /* AboutMeViewController.swift in Sources */,

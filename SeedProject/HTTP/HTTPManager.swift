@@ -1,5 +1,5 @@
 //
-//  NetworkManager.swift
+//  HTTPManager.swift
 //  SeedProject
 //
 //  Created by 冯奕骅 on 2018/6/10.
@@ -11,9 +11,9 @@ import Alamofire
 import SwiftyJSON
 import MBProgressHUD
 
-struct NetworkManager {
+struct HTTPManager {
 
-    static let shared = NetworkManager()
+    static let shared = HTTPManager()
 
     private init() {}
 

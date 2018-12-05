@@ -26,7 +26,7 @@ class HomePageViewModel {
     }()
 
     func fetchNews(completion: @escaping () -> ()) {
-        NetworkManager.shared.fetchNews(success: { data in
+        HTTPManager.shared.fetchNews(success: { data in
             for (_, subJson): (String, JSON) in data["items"] {
                 self.news.insert(subJson["title"].stringValue, at: 0)
             }
