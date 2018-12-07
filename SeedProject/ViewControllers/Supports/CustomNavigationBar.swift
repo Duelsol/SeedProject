@@ -53,6 +53,7 @@ extension UIViewController {
         navigationController?.hidesNavigationBarHairline = true
         let customNavBar = CustomNavigationBar(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: NAVIGATIONBAR_HEIGHT + STATUSBAR_HEIGHT))
         customNavBar.isTranslucent = false
+        extendedLayoutIncludesOpaqueBars = true
         customNavBar.shadowImage = UIImage()
         if item != nil {
             customNavBar.setItems([item!], animated: false)

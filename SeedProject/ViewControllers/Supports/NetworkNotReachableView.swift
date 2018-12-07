@@ -1,22 +1,22 @@
 //
-//  LoadingView.swift
+//  NetworkNotReachableView.swift
 //  SeedProject
 //
-//  Created by 冯奕骅 on 2018/11/26.
+//  Created by 冯奕骅 on 2018/12/6.
 //  Copyright © 2018 冯奕骅. All rights reserved.
 //
 
 import Foundation
 import SnapKit
 
-class LoadingView: UIView {
+class NetworkNotReachableView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
 
         backgroundColor = UIColor.white
         let label = UILabel()
-        label.text = "加载中..."
+        label.text = "无法访问网络"
         label.sizeToFit()
         addSubview(label)
         label.snp.makeConstraints {
@@ -33,16 +33,16 @@ class LoadingView: UIView {
 
 extension UIView {
 
-    func showLoading(frame: CGRect? = nil) {
+    func showNetworkNotReachable(frame: CGRect? = nil) {
         let finalFrame = frame ?? self.bounds
-        let loadingView = LoadingView(frame: finalFrame)
-        addSubview(loadingView)
-        bringSubviewToFront(loadingView)
+        let networkNotReachableView = NetworkNotReachableView(frame: finalFrame)
+        addSubview(networkNotReachableView)
+        bringSubviewToFront(networkNotReachableView)
     }
 
-    func hideLoading() {
+    func hideNetworkNotReachable() {
         for subView in subviews {
-            if subView is LoadingView {
+            if subView is NetworkNotReachableView {
                 subView.removeFromSuperview()
                 break
             }
