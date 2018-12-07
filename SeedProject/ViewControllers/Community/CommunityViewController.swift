@@ -39,7 +39,7 @@ class CommunityViewController: UIViewController {
 
         communityCollectionView.delegate = self
         communityCollectionView.dataSource = self
-        communityCollectionView.frame = SafeArea().withNavigationBar().withTabBar().value()
+        communityCollectionView.frame = SafeArea().excludeNavigationBar().excludeTabBar().rect()
         let layout = communityCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.minimumInteritemSpacing = SPACING
         layout.minimumLineSpacing = SPACING

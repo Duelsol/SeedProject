@@ -29,7 +29,7 @@ class HomePageViewController: ButtonBarPagerTabStripViewController {
         homePageNavItem.titleView = buttonBarView
         _ = createCustomNavigationBar(with: homePageNavItem)
 
-        containerView.frame = SafeArea().withNavigationBar().withTabBar().value()
+        containerView.frame = SafeArea().excludeNavigationBar().excludeTabBar().rect()
     }
 
     deinit {

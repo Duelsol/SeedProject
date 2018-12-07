@@ -27,17 +27,17 @@ class SafeArea {
     private var navigationBarHeight: CGFloat = 0
     private var tabBarHeight: CGFloat = isFaceIDCapable ? 34 : 0
 
-    func withNavigationBar() -> SafeArea {
+    func excludeNavigationBar() -> SafeArea {
         navigationBarHeight = NAVIGATIONBAR_HEIGHT
         return self
     }
 
-    func withTabBar() -> SafeArea {
+    func excludeTabBar() -> SafeArea {
         tabBarHeight = TABBAR_HEIGHT
         return self
     }
 
-    func value() -> CGRect {
+    func rect() -> CGRect {
         return CGRect(x: 0, y: STATUSBAR_HEIGHT + navigationBarHeight, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - STATUSBAR_HEIGHT - navigationBarHeight - tabBarHeight)
     }
 
