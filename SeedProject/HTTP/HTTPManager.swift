@@ -9,7 +9,6 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
-import MBProgressHUD
 
 struct HTTPManager {
 
@@ -40,15 +39,7 @@ struct HTTPManager {
                         success(json["data"])
                     }
                 case .failure(_):
-                    guard let rootVC = UIApplication.shared.keyWindow?.rootViewController else {
-                        return
-                    }
-                    let hud = MBProgressHUD.showAdded(to: rootVC.view, animated: true)
-                    hud.mode = .text
-                    hud.label.text = "无法连接到网络，请稍后重试。"
-                    hud.label.textColor = .white
-                    hud.bezelView.backgroundColor = .black
-                    hud.hide(animated: true, afterDelay: 2)
+                    NotificationCenter.default.post(custom: .networkNotReachable, object: nil)
                 }
                 finally?()
         }

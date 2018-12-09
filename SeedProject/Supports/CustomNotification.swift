@@ -11,6 +11,7 @@ import Foundation
 enum CustomNotification: String {
 
     case themeWillChange
+    case networkNotReachable
 
     var stringValue: String {
         return rawValue + "CustomNotification"

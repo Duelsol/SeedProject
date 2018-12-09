@@ -8,6 +8,7 @@
 
 import Foundation
 import SnapKit
+import MBProgressHUD
 
 class NetworkNotReachableView: UIView {
 
@@ -16,7 +17,7 @@ class NetworkNotReachableView: UIView {
 
         backgroundColor = UIColor.white
         let label = UILabel()
-        label.text = "无法访问网络"
+        label.text = "无法连接到网络，请稍后重试。"
         label.sizeToFit()
         addSubview(label)
         label.snp.makeConstraints {
@@ -31,22 +32,43 @@ class NetworkNotReachableView: UIView {
 
 }
 
-extension UIView {
+protocol NetworkNotReachableProtocol where Self: UIViewController {}
 
-    func showNetworkNotReachable(frame: CGRect? = nil) {
-        let finalFrame = frame ?? self.bounds
-        let networkNotReachableView = NetworkNotReachableView(frame: finalFrame)
-        addSubview(networkNotReachableView)
-        bringSubviewToFront(networkNotReachableView)
+extension NetworkNotReachableProtocol {
+
+    func addNetworkNotReachableObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(handleNetworkNotReachable), name: CustomNotification.networkNotReachable.notificationName, object: nil)
     }
 
-    func hideNetworkNotReachable() {
-        for subView in subviews {
+    func showNetworkNotReachableView(frame: CGRect? = nil) {
+        let finalFrame = frame ?? view.bounds
+        let networkNotReachableView = NetworkNotReachableView(frame: finalFrame)
+        view.addSubview(networkNotReachableView)
+        view.bringSubviewToFront(networkNotReachableView)
+    }
+
+    func hideNetworkNotReachableView() {
+        for subView in view.subviews {
             if subView is NetworkNotReachableView {
                 subView.removeFromSuperview()
                 break
             }
         }
     }
+
+    func showNetworkNotReachableAlert() {
+        let hud = MBProgressHUD.showAdded(to: view, animated: true)
+        hud.mode = .text
+        hud.label.text = "无法连接到网络，请稍后重试。"
+        hud.label.textColor = .white
+        hud.bezelView.backgroundColor = .black
+        hud.hide(animated: true, afterDelay: 2)
+    }
+
+}
+
+extension UIViewController {
+
+    @objc func handleNetworkNotReachable() {}
 
 }

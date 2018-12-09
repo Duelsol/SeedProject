@@ -31,17 +31,17 @@ class LoadingView: UIView {
 
 }
 
-extension UIView {
+extension UIViewController {
 
-    func showLoading(frame: CGRect? = nil) {
-        let finalFrame = frame ?? self.bounds
+    func showLoadingView(frame: CGRect? = nil) {
+        let finalFrame = frame ?? view.bounds
         let loadingView = LoadingView(frame: finalFrame)
-        addSubview(loadingView)
-        bringSubviewToFront(loadingView)
+        view.addSubview(loadingView)
+        view.bringSubviewToFront(loadingView)
     }
 
-    func hideLoading() {
-        for subView in subviews {
+    func hideLoadingView() {
+        for subView in view.subviews {
             if subView is LoadingView {
                 subView.removeFromSuperview()
                 break
