@@ -47,7 +47,7 @@ class SafeArea {
         return self
     }
 
-    func exclude(from direction: SideDirection, of value: CGFloat) -> SafeArea {
+    func exclude(from direction: SideDirection, value: CGFloat) -> SafeArea {
         if direction == .top {
             y += value
             height -= value
