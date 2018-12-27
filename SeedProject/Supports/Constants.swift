@@ -24,8 +24,18 @@ let TABBAR_HEIGHT: CGFloat = isFaceIDCapable ? 83 : 49
 
 class SafeArea {
 
+    private var x: CGFloat = 0
+    private var y: CGFloat = STATUSBAR_HEIGHT
+    private var width: CGFloat = SCREEN_WIDTH
+    private var height: CGFloat = SCREEN_HEIGHT - STATUSBAR_HEIGHT
     private var navigationBarHeight: CGFloat = 0
     private var tabBarHeight: CGFloat = isFaceIDCapable ? 34 : 0
+
+    enum SideDirection {
+
+        case top, bottom, left, right
+
+    }
 
     func excludeNavigationBar() -> SafeArea {
         navigationBarHeight = NAVIGATIONBAR_HEIGHT
@@ -37,8 +47,23 @@ class SafeArea {
         return self
     }
 
+    func exclude(from direction: SideDirection, of value: CGFloat) -> SafeArea {
+        if direction == .top {
+            y += value
+            height -= value
+        } else if direction == .bottom {
+            height -= value
+        } else if direction == .left {
+            x += value
+            width -= value
+        } else if direction == .right {
+            width -= value
+        }
+        return self
+    }
+
     func rect() -> CGRect {
-        return CGRect(x: 0, y: STATUSBAR_HEIGHT + navigationBarHeight, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - STATUSBAR_HEIGHT - navigationBarHeight - tabBarHeight)
+        return CGRect(x: x, y: y + navigationBarHeight, width: width, height: height - navigationBarHeight - tabBarHeight)
     }
 
 }
