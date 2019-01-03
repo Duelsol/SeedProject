@@ -13,6 +13,15 @@ enum ThemeEnum: String {
 
     case `default` = "DefaultTheme"
 
+    var instance: ThemeProtocol {
+        get {
+            guard let theme = obtainClass(byName: self.rawValue) as? ThemeProtocol.Type else {
+                return DefaultTheme()
+            }
+            return theme.init()
+        }
+    }
+
 }
 
 class ThemeManager {
@@ -20,28 +29,24 @@ class ThemeManager {
     static let shared = ThemeManager()
 
     /// 默认从UserDefaults取上一次使用的主题
-    private var current: ThemeEnum = {
+    private var current: ThemeProtocol = {
         if let savedTheme = UserDefaults.standard.string(forKey: "CurrentTheme"), let theme = ThemeEnum(rawValue: savedTheme) {
-            return theme
+            return theme.instance
         }
-        return .default
+        return ThemeEnum.default.instance
     }()
 
     private init() {}
 
-    /// 改变主题
-    func change(to theme: ThemeEnum) {
-        current = theme
-        UserDefaults.standard.setValue(theme.rawValue, forKey: "CurrentTheme")
-        NotificationCenter.default.post(custom: .themeWillChange, object: nil)
+    func currentTheme() -> ThemeProtocol {
+        return current
     }
 
-    /// 获取与颜色相关的元素
-    func getColor(ofElement element: ThemeColorElement) -> UIColor {
-        guard let theme = obtainClass(byName: current.rawValue) as? ThemeProtocol.Type else {
-            return UIColor.clear
-        }
-        return theme.colorElements[element.rawValue]!
+    /// 改变主题
+    func change(to theme: ThemeEnum) {
+        current = theme.instance
+        UserDefaults.standard.setValue(theme.rawValue, forKey: "CurrentTheme")
+        NotificationCenter.default.post(custom: .themeWillChange, object: nil)
     }
 
 }

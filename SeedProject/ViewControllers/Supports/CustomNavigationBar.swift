@@ -39,8 +39,8 @@ extension CustomNavigationBar: ThemeChangeProtocol {
 
     override func handleThemeChange() {
         super.handleThemeChange()
-        barTintColor = ThemeManager.shared.getColor(ofElement: .navigationBarBackground)
-        tintColor = ThemeManager.shared.getColor(ofElement: .navigationBarText)
+        barTintColor = ThemeManager.shared.currentTheme().navigationBarBackground
+        tintColor = ThemeManager.shared.currentTheme().navigationBarText
     }
 
 }

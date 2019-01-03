@@ -41,8 +41,8 @@ extension MainTabBarController: ThemeChangeProtocol {
 
     override func handleThemeChange() {
         super.handleThemeChange()
-        tabBar.tintColor = ThemeManager.shared.getColor(ofElement: .tabBarItem)
-        tabBar.barTintColor = ThemeManager.shared.getColor(ofElement: .tabBarText)
+        tabBar.tintColor = ThemeManager.shared.currentTheme().tabBarItem
+        tabBar.barTintColor = ThemeManager.shared.currentTheme().tabBarText
     }
 
 }

@@ -10,14 +10,26 @@ import Foundation
 
 class DefaultTheme: ThemeProtocol {
 
-    static let colorElements: [String: UIColor] = {
-        return [
-            "viewBackground": UIColor.white,
-            "tabBarItem": UIColor.flatWatermelonColorDark(),
-            "tabBarText": UIColor.white,
-            "navigationBarBackground": UIColor.flatWatermelonColorDark(),
-            "navigationBarText": UIColor.white
-        ]
-    }()
+    required init() {}
+
+    var viewBackground: UIColor {
+        return UIColor.white
+    }
+
+    var tabBarItem: UIColor {
+        return UIColor.flatWatermelonColorDark()
+    }
+
+    var tabBarText: UIColor {
+        return UIColor.white
+    }
+
+    var navigationBarBackground: UIColor {
+        return UIColor.flatWatermelonColorDark()
+    }
+
+    var navigationBarText: UIColor {
+        return UIColor.white
+    }
 
 }

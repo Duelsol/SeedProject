@@ -46,8 +46,8 @@ extension DemoViewController: ThemeChangeProtocol {
 
     override func handleThemeChange() {
         super.handleThemeChange()
-        view.backgroundColor = ThemeManager.shared.getColor(ofElement: .viewBackground)
-        titleLabel.textColor = ThemeManager.shared.getColor(ofElement: .navigationBarText)
+        view.backgroundColor = ThemeManager.shared.currentTheme().viewBackground
+        titleLabel.textColor = ThemeManager.shared.currentTheme().navigationBarText
     }
 
 }

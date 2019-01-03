@@ -67,7 +67,7 @@ extension SearchViewController: ThemeChangeProtocol {
 
     override func handleThemeChange() {
         super.handleThemeChange()
-        searchViewController!.searchBar.tintColor = ThemeManager.shared.getColor(ofElement: .navigationBarBackground)
+        searchViewController!.searchBar.tintColor = ThemeManager.shared.currentTheme().navigationBarBackground
     }
 
 }

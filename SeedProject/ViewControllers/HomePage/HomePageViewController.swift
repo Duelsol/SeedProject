@@ -49,8 +49,8 @@ extension HomePageViewController: ThemeChangeProtocol {
 
     override func handleThemeChange() {
         super.handleThemeChange()
-        settings.style.buttonBarItemTitleColor = ThemeManager.shared.getColor(ofElement: .navigationBarText)
-        settings.style.selectedBarBackgroundColor = ThemeManager.shared.getColor(ofElement: .navigationBarText)
+        settings.style.buttonBarItemTitleColor = ThemeManager.shared.currentTheme().navigationBarText
+        settings.style.selectedBarBackgroundColor = ThemeManager.shared.currentTheme().navigationBarText
     }
 
 }

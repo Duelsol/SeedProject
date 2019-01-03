@@ -17,7 +17,7 @@
 		EB3B042F1FBD2A6E0033F492 /* AboutMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3B042E1FBD2A6E0033F492 /* AboutMeViewController.swift */; };
 		EB3B04311FBDC9100033F492 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3B04301FBDC9100033F492 /* DemoViewController.swift */; };
 		EB3BDEC120D39ACC0067B2A3 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3BDEC020D39ACC0067B2A3 /* ThemeManager.swift */; };
-		EB3BDEC320D3B1AB0067B2A3 /* ThemeElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3BDEC220D3B1AB0067B2A3 /* ThemeElement.swift */; };
+		EB3BDEC320D3B1AB0067B2A3 /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3BDEC220D3B1AB0067B2A3 /* ThemeProtocol.swift */; };
 		EB3BDEC520D53B930067B2A3 /* DefaultTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3BDEC420D53B930067B2A3 /* DefaultTheme.swift */; };
 		EB3D97871F5F8F7B007112C4 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3D97861F5F8F7B007112C4 /* MainTabBarController.swift */; };
 		EB51F7FC2051598300E505F9 /* CustomNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51F7FB2051598300E505F9 /* CustomNotification.swift */; };
@@ -54,7 +54,7 @@
 		EB3B042E1FBD2A6E0033F492 /* AboutMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeViewController.swift; sourceTree = "<group>"; };
 		EB3B04301FBDC9100033F492 /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
 		EB3BDEC020D39ACC0067B2A3 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
-		EB3BDEC220D3B1AB0067B2A3 /* ThemeElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeElement.swift; sourceTree = "<group>"; };
+		EB3BDEC220D3B1AB0067B2A3 /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
 		EB3BDEC420D53B930067B2A3 /* DefaultTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTheme.swift; sourceTree = "<group>"; };
 		EB3D97861F5F8F7B007112C4 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		EB51F7FB2051598300E505F9 /* CustomNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNotification.swift; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				EB3BDEC020D39ACC0067B2A3 /* ThemeManager.swift */,
-				EB3BDEC220D3B1AB0067B2A3 /* ThemeElement.swift */,
+				EB3BDEC220D3B1AB0067B2A3 /* ThemeProtocol.swift */,
 				EB3BDEC420D53B930067B2A3 /* DefaultTheme.swift */,
 			);
 			path = Theme;
@@ -472,7 +472,7 @@
 				EB3BDEC520D53B930067B2A3 /* DefaultTheme.swift in Sources */,
 				EB3B042F1FBD2A6E0033F492 /* AboutMeViewController.swift in Sources */,
 				EB84215B1F591D5B0055099F /* SeedProject.xcdatamodeld in Sources */,
-				EB3BDEC320D3B1AB0067B2A3 /* ThemeElement.swift in Sources */,
+				EB3BDEC320D3B1AB0067B2A3 /* ThemeProtocol.swift in Sources */,
 				EB6EC0961FB70568001B70AF /* SearchViewController.swift in Sources */,
 				EB5D57CA1F5B056F00C6DE5A /* HomePageTutorialViewController.swift in Sources */,
 				EB3D97871F5F8F7B007112C4 /* MainTabBarController.swift in Sources */,

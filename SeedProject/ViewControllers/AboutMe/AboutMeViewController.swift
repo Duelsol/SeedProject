@@ -87,7 +87,7 @@ extension AboutMeViewController: UIScrollViewDelegate {
 extension AboutMeViewController {
 
     private func adjustNavBarBackgroundImageAlpha(_ alpha: CGFloat) {
-        let color = UIColor(hexString: ThemeManager.shared.getColor(ofElement: .navigationBarBackground).hexValue(), withAlpha: alpha)
+        let color = UIColor(hexString: ThemeManager.shared.currentTheme().navigationBarBackground.hexValue(), withAlpha: alpha)
         customNavBar!.setBackgroundImage(UIImage.initWithColor(color!), for: .default)
     }
 

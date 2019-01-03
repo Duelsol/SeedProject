@@ -60,7 +60,7 @@ extension CommunityViewController: ThemeChangeProtocol {
 
     override func handleThemeChange() {
         super.handleThemeChange()
-        titleLabel.textColor = ThemeManager.shared.getColor(ofElement: .navigationBarText)
+        titleLabel.textColor = ThemeManager.shared.currentTheme().navigationBarText
     }
 
 }
