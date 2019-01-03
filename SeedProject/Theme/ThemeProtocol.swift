@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// 主题协议，定义了每个主题需要提供的元素
+/// 主题协议，定义了每个主题所有的元素
 protocol ThemeProtocol {
 
     init()
@@ -22,5 +22,30 @@ protocol ThemeProtocol {
     var navigationBarBackground: UIColor { get }
 
     var navigationBarText: UIColor { get }
+
+}
+
+/// 提供主题元素的默认值
+extension ThemeProtocol {
+
+    var viewBackground: UIColor {
+        return UIColor.white
+    }
+
+    var tabBarItem: UIColor {
+        return UIColor.flatWatermelonColorDark()
+    }
+
+    var tabBarText: UIColor {
+        return UIColor.white
+    }
+
+    var navigationBarBackground: UIColor {
+        return UIColor.flatWatermelonColorDark()
+    }
+
+    var navigationBarText: UIColor {
+        return UIColor.white
+    }
 
 }
