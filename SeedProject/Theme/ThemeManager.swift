@@ -33,7 +33,7 @@ class ThemeManager {
         if let savedTheme = UserDefaults.standard.string(forKey: "CurrentTheme"), let theme = ThemeEnum(rawValue: savedTheme) {
             return theme.instance
         }
-        return ThemeEnum.default.instance
+        return DefaultTheme()
     }()
 
     private init() {}
