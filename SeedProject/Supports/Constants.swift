@@ -11,25 +11,25 @@ import DeviceKit
 
 /// Device
 
-let isFaceIDCapable = {
-    return Device().realDevice.isFaceIDCapable
-}()
-
 let SCREEN_WIDTH = UIScreen.main.bounds.width
 let SCREEN_HEIGHT = UIScreen.main.bounds.height
-let STATUSBAR_HEIGHT: CGFloat = isFaceIDCapable ? 44 : 20
 let NAVIGATIONBAR_HEIGHT: CGFloat = 44
 let NAVIGATIONBAR_TITLE_SIZE: CGFloat = 18
-let TABBAR_HEIGHT: CGFloat = isFaceIDCapable ? 83 : 49
+
+var safeAreaInsets: UIEdgeInsets {
+    if #available(iOS 11.0, *) {
+        return UIApplication.shared.delegate?.window??.safeAreaInsets ?? UIEdgeInsets.zero
+    }
+    return UIEdgeInsets.zero
+}
 
 class SafeArea {
 
-    private var x: CGFloat = 0
-    private var y: CGFloat = STATUSBAR_HEIGHT
-    private var width: CGFloat = SCREEN_WIDTH
-    private var height: CGFloat = SCREEN_HEIGHT - STATUSBAR_HEIGHT
+    private var x: CGFloat = safeAreaInsets.left
+    private var y: CGFloat = safeAreaInsets.top
+    private var width: CGFloat = SCREEN_WIDTH - safeAreaInsets.left - safeAreaInsets.right
+    private var height: CGFloat = SCREEN_HEIGHT - safeAreaInsets.top - safeAreaInsets.bottom
     private var navigationBarHeight: CGFloat = 0
-    private var tabBarHeight: CGFloat = isFaceIDCapable ? 34 : 0
 
     enum SideDirection {
 
@@ -39,11 +39,6 @@ class SafeArea {
 
     func excludeNavigationBar() -> SafeArea {
         navigationBarHeight = NAVIGATIONBAR_HEIGHT
-        return self
-    }
-
-    func excludeTabBar() -> SafeArea {
-        tabBarHeight = TABBAR_HEIGHT
         return self
     }
 
@@ -63,7 +58,7 @@ class SafeArea {
     }
 
     func rect() -> CGRect {
-        return CGRect(x: x, y: y + navigationBarHeight, width: width, height: height - navigationBarHeight - tabBarHeight)
+        return CGRect(x: x, y: y + navigationBarHeight, width: width, height: height - navigationBarHeight)
     }
 
 }

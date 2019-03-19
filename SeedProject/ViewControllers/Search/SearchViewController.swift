@@ -29,7 +29,7 @@ class SearchViewController: UIViewController {
         // 自定义导航栏
         _ = createCustomNavigationBar(with: UINavigationItem())
 
-        searchViewController!.view.frame = SafeArea().excludeNavigationBar().excludeTabBar().rect()
+        searchViewController!.view.frame = SafeArea().excludeNavigationBar().rect()
         addChild(searchViewController!)
         view.addSubview(searchViewController!.view)
 
