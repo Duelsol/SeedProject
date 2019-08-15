@@ -114,7 +114,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             searchViewController!.searchBar.text = text
 
             var searchHistories = (NSKeyedUnarchiver.unarchiveObject(withFile: searchViewController!.searchHistoriesCachePath) as? [String]) ?? [String]()
-            if let index = searchHistories.index(of: text) {
+            if let index = searchHistories.firstIndex(of: text) {
                 searchHistories.remove(at: index)
             }
             searchHistories.insert(text, at: 0)
