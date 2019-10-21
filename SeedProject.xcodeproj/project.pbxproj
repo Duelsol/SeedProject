@@ -13,6 +13,7 @@
 		EB25566E21AB916200C7EF14 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB25566D21AB916200C7EF14 /* LoadingView.swift */; };
 		EB2CE9682031852E00F7ECB9 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2CE9672031852D00F7ECB9 /* R.generated.swift */; };
 		EB317D801FD5722F00CD1799 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB317D7F1FD5722F00CD1799 /* Extensions.swift */; };
+		EB32968423585CD6004F64C9 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = EB32968323585CD6004F64C9 /* .gitkeep */; };
 		EB384D4821B8D3EB00674722 /* NetworkNotReachableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB384D4721B8D3EB00674722 /* NetworkNotReachableView.swift */; };
 		EB3B042F1FBD2A6E0033F492 /* AboutMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3B042E1FBD2A6E0033F492 /* AboutMeViewController.swift */; };
 		EB3B04311FBDC9100033F492 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3B04301FBDC9100033F492 /* DemoViewController.swift */; };
@@ -50,6 +51,7 @@
 		EB25566D21AB916200C7EF14 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		EB2CE9672031852D00F7ECB9 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		EB317D7F1FD5722F00CD1799 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		EB32968323585CD6004F64C9 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		EB384D4721B8D3EB00674722 /* NetworkNotReachableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkNotReachableView.swift; sourceTree = "<group>"; };
 		EB3B042E1FBD2A6E0033F492 /* AboutMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeViewController.swift; sourceTree = "<group>"; };
 		EB3B04301FBDC9100033F492 /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,19 @@
 				6B9B17D6F0C91E78469A3FCE /* Pods_SeedProject.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EB329682235856C9004F64C9 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				EB56872D20CD391C00F4E681 /* HTTP */,
+				EB8421681F591DE60055099F /* Models */,
+				EB84216A1F591DF60055099F /* Supports */,
+				EB3BDEBF20D39AB20067B2A3 /* Theme */,
+				EB8421691F591DF00055099F /* ViewControllers */,
+				EB8421671F591DDF0055099F /* ViewModels */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		EB3B042D1FBD2A3A0033F492 /* AboutMe */ = {
@@ -193,14 +208,15 @@
 		EB8421511F591D5B0055099F /* SeedProject */ = {
 			isa = PBXGroup;
 			children = (
-				EBCA930E20CD21C0005EBF3D /* AppDelegate */,
-				EB8421681F591DE60055099F /* Models */,
-				EB56872D20CD391C00F4E681 /* HTTP */,
-				EB84216B1F591DFD0055099F /* Resources */,
-				EB84216A1F591DF60055099F /* Supports */,
-				EB3BDEBF20D39AB20067B2A3 /* Theme */,
-				EB8421691F591DF00055099F /* ViewControllers */,
-				EB8421671F591DDF0055099F /* ViewModels */,
+				EB8421521F591D5B0055099F /* AppDelegate.swift */,
+				EB84215C1F591D5B0055099F /* Assets.xcassets */,
+				EB8421611F591D5B0055099F /* Info.plist */,
+				EB84216C1F591E4A0055099F /* Layouts */,
+				EB6EC0911FB6F5AF001B70AF /* Localizable.strings */,
+				EB2CE9672031852D00F7ECB9 /* R.generated.swift */,
+				EB5D57BF1F5AE0B200C6DE5A /* SeedProject-Bridging-Header.h */,
+				EB8421591F591D5B0055099F /* SeedProject.xcdatamodeld */,
+				EB329682235856C9004F64C9 /* Classes */,
 			);
 			path = SeedProject;
 			sourceTree = "<group>";
@@ -218,7 +234,7 @@
 		EB8421681F591DE60055099F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				EB8421591F591D5B0055099F /* SeedProject.xcdatamodeld */,
+				EB32968323585CD6004F64C9 /* .gitkeep */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -240,25 +256,12 @@
 		EB84216A1F591DF60055099F /* Supports */ = {
 			isa = PBXGroup;
 			children = (
-				EB5D57BF1F5AE0B200C6DE5A /* SeedProject-Bridging-Header.h */,
-				EB2CE9672031852D00F7ECB9 /* R.generated.swift */,
 				EBA6020B1F5ECB6B00859861 /* Functions.swift */,
 				EB317D7F1FD5722F00CD1799 /* Extensions.swift */,
 				EB6EC0971FB7093A001B70AF /* Constants.swift */,
 				EB51F7FB2051598300E505F9 /* CustomNotification.swift */,
 			);
 			path = Supports;
-			sourceTree = "<group>";
-		};
-		EB84216B1F591DFD0055099F /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				EB84216C1F591E4A0055099F /* Layouts */,
-				EB84215C1F591D5B0055099F /* Assets.xcassets */,
-				EB8421611F591D5B0055099F /* Info.plist */,
-				EB6EC0911FB6F5AF001B70AF /* Localizable.strings */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		EB84216C1F591E4A0055099F /* Layouts */ = {
@@ -268,14 +271,6 @@
 				EB84215E1F591D5B0055099F /* LaunchScreen.storyboard */,
 			);
 			path = Layouts;
-			sourceTree = "<group>";
-		};
-		EBCA930E20CD21C0005EBF3D /* AppDelegate */ = {
-			isa = PBXGroup;
-			children = (
-				EB8421521F591D5B0055099F /* AppDelegate.swift */,
-			);
-			path = AppDelegate;
 			sourceTree = "<group>";
 		};
 		EBE7552D21B7F9E500FF9321 /* Supports */ = {
@@ -347,9 +342,9 @@
 				TargetAttributes = {
 					EB84214E1F591D5B0055099F = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = ZSY5D7QV4F;
+						DevelopmentTeam = 254AUA3V5S;
 						LastSwiftMigration = 1030;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -378,6 +373,7 @@
 			files = (
 				EB8421601F591D5B0055099F /* LaunchScreen.storyboard in Resources */,
 				EB6EC0921FB6F5AF001B70AF /* Localizable.strings in Resources */,
+				EB32968423585CD6004F64C9 /* .gitkeep in Resources */,
 				EB84215D1F591D5B0055099F /* Assets.xcassets in Resources */,
 				EB8421581F591D5B0055099F /* Main.storyboard in Resources */,
 			);
@@ -457,11 +453,11 @@
 				"$TEMP_DIR/rswift-lastrun",
 			);
 			outputPaths = (
-				$SRCROOT/SeedProject/Supports/R.generated.swift,
+				$SRCROOT/SeedProject/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/SeedProject/Supports/R.generated.swift\"\n";
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/SeedProject/R.generated.swift\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -639,15 +635,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = ZSY5D7QV4F;
-				INFOPLIST_FILE = "$(SRCROOT)/SeedProject/Resources/Info.plist";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 254AUA3V5S;
+				INFOPLIST_FILE = "$(SRCROOT)/SeedProject/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = me.duelsol.SeedProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "XC Wildcard Development";
-				SWIFT_OBJC_BRIDGING_HEADER = "SeedProject/Supports/SeedProject-Bridging-Header.h";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "SeedProject/SeedProject-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -659,15 +657,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = ZSY5D7QV4F;
-				INFOPLIST_FILE = "$(SRCROOT)/SeedProject/Resources/Info.plist";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 254AUA3V5S;
+				INFOPLIST_FILE = "$(SRCROOT)/SeedProject/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = me.duelsol.SeedProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "XC Wildcard Development";
-				SWIFT_OBJC_BRIDGING_HEADER = "SeedProject/Supports/SeedProject-Bridging-Header.h";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "SeedProject/SeedProject-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
